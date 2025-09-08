@@ -1,9 +1,9 @@
 # Kişisel Portföy Websitem - bentahsin
 
-![GitHub Dil Sayısı](https://img.shields.io/github/languages/count/bentahsin/benthportfolio?style=for-the-badge)
-![GitHub Top Dil](https://img.shields.io/github/languages/top/bentahsin/benthportfolio?style=for-the-badge&color=8c469e)
-![Lisans](https://img.shields.io/github/license/bentahsin/benthportfolio?style=for-the-badge)
-![Son Commit](https://img.shields.io/github/last-commit/bentahsin/benthportfolio?style=for-the-badge)
+![GitHub Dil Sayısı](https://img.shields.io/github/languages/count/bentahsin/benth-portfolio?style=for-the-badge)
+![GitHub Top Dil](https://img.shields.io/github/languages/top/bentahsin/benth-portfolio?style=for-the-badge&color=8c469e)
+![Lisans](https://img.shields.io/github/license/bentahsin/benth-portfolio?style=for-the-badge)
+![Son Commit](https://img.shields.io/github/last-commit/bentahsin/benth-portfolio?style=for-the-badge)
 
 Merhaba! Bu repo, yeteneklerimi, projelerimi ve yazılım felsefemi sergilemek üzere tasarladığım kişisel portföy web sitemin kaynak kodlarını barındırmaktadır. Bu platformu, dijital bir kartvizitten daha fazlası olarak görüyor; teknik yetkinliğimi ve problem çözme yaklaşımımı somut bir şekilde göstermeyi amaçlıyorum.
 
@@ -69,11 +69,11 @@ Projeyi kendi bilgisayarınızda kurmak ve çalıştırmak isterseniz aşağıda
 
 1.  **Repoyu klonlayın:**
     ```bash
-    git clone [https://github.com/bentahsin/benthportfolio.git](https://github.com/bentahsin/benthportfolio.git)
+    git clone [https://github.com/bentahsin/benth-portfolio.git](https://github.com/bentahsin/benth-portfolio.git)
     ```
 2.  **Proje dizinine geçin:**
     ```bash
-    cd benthportfolio
+    cd benth-portfolio
     ```
 3.  **Gerekli paketleri yükleyin:**
     ```bash

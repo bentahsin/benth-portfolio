@@ -1,0 +1,38 @@
+.container {
+    max-width: 100%;
+    overflow-x: auto;
+    border: 1px solid var(--card-bg);
+    border-radius: 10px;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.container table {
+    width: 100%;
+    table-layout: auto; 
+}
+
+.container pre {
+    white-space: pre-wrap !important;
+    word-wrap: break-word !important;
+    word-break: break-all !important;
+    margin: 0 !important;
+}
+
+.container td[class*="title-"] {
+    padding: 1rem 0.5rem !important;
+    text-align: center;
+}
+
+.container :global(td.diff-gutter) {
+    display: none !important; 
+}
+
+.container :global(span.diff-gutter-add),
+.container :global(span.diff-gutter-delete) {
+    display: none !important;
+}
+
+.container :global(td.diff-code) {
+    padding-left: 1rem !important;
+}

@@ -1,0 +1,30 @@
+{
+  "name": "benth-portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^7.0.0",
+    "@fortawesome/react-fontawesome": "^0.2.3",
+    "@tsparticles/engine": "^3.8.1",
+    "framer-motion": "^12.23.11",
+    "mermaid": "^11.9.0",
+    "next": "15.4.3",
+    "react": "19.1.0",
+    "react-diff-viewer": "^3.1.1",
+    "react-dom": "19.1.0",
+    "react-markdown": "^10.1.0",
+    "react-tsparticles": "^2.12.2",
+    "tsparticles-slim": "^2.12.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.3"
+  }
+}

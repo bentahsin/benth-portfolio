@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
+import SpotifyActivity from '@/components/Spotify/SpotifyActivity';
 
 export default function Home() {
     return (
@@ -57,6 +58,12 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section id="music">
+                <h2 className="section-title">Spotify</h2>
+                <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+                    <SpotifyActivity />
+                </div>
+            </section>
             <section id="skills">
                 <h2 className="section-title">Yeteneklerim</h2>
                 <div className="skills-container">
@@ -69,6 +76,9 @@ export default function Home() {
                             <div className="skill-item" data-tilt><i className="devicon-arduino-plain"></i><span>Arduino</span>
                             </div>
                             <div className="skill-item" data-tilt><i className="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                            <div className="skill-item" data-tilt><i className="devicon-javascript-plain"></i><span>JavaScript</span></div>
+                            <div className="skill-item" data-tilt><i className="devicon-typescript-plain"></i><span>TypeScript</span></div>
+                            <div className="skill-item" data-tilt><i className="devicon-biome-plain"></i><span>Biome</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-nodejs-plain"></i><span>Node.js</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-python-plain"></i><span>Python</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-dot-net-plain"></i><span>.NET</span></div>

@@ -76,7 +76,6 @@ export default function Home() {
                             <div className="skill-item" data-tilt><i className="devicon-arduino-plain"></i><span>Arduino</span>
                             </div>
                             <div className="skill-item" data-tilt><i className="devicon-javascript-plain"></i><span>JavaScript</span></div>
-                            <div className="skill-item" data-tilt><i className="devicon-javascript-plain"></i><span>JavaScript</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-typescript-plain"></i><span>TypeScript</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-biome-plain"></i><span>Biome</span></div>
                             <div className="skill-item" data-tilt><i className="devicon-nodejs-plain"></i><span>Node.js</span></div>

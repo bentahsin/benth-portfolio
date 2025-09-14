@@ -37,7 +37,7 @@ export default function Home() {
                             Benim için yazılım geliştirme sadece kod yazmaktan ibaret değil; en zorlu koşullara bile dayanacak öngörülü ve sağlam sistemler kurmakla ilgilidir. Bu yaklaşım, çocukluktan kalma bir teknoloji tutkusuyla şekillendi ve tek bir mesleki ilkeye dayanıyor: Teslim ettiğim hiçbir iş &apos;tam kıvamında&apos; veya &apos;neredeyse bitmiş&apos; değildir.
                         </p>
                         <p>
-                            Her projeye bir mimar titizliğiyle yaklaşıyorum; sadece bugünün sorunlarını çözmekle kalmıyor, aynı zamanda yarının potansiyel zorluklarını da öngörüyorum. Kodlamanın dışında, zorlu doğa bisiklet turları ve kampçılık gibi planlama ve sabır gerektiren hobilerimle bu teknik disiplini besliyorum.
+                            Her projeye bir mimar titizliğiyle yaklaşıyorum; sadece bugünün sorunlarını çözmekle kalmıyor, aynı zamanda yarının potansiyel zorluklarını da öngörüyorum.
                         </p>
                     </div>
                     <div className="about-image">

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }) {
     };
   }
   return {
-    title: `${project.title} | Ben Tahsin Vaka Analizi`,
+    title: `${project.title} | bentahsin Proje Detayları`,
     description: project.description,
   };
 }

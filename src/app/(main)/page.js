@@ -3,10 +3,26 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
 import SpotifyActivity from '@/components/Spotify/SpotifyActivity';
+import JsonLd from '@/components/JsonLd';
 
 export default function Home() {
+    const personSchema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tahsin",
+        "url": "https://www.bentahsin.com",
+        "sameAs": [
+            "https://github.com/bentahsin"
+        ],
+        "jobTitle": "Backend Developer",
+        "worksFor": {
+            "@type": "Organization",
+            "name": "bentahsin"
+        }
+    };
     return (
         <>
+        <JsonLd data={personSchema} />
         <div className="background-effects">
             <div className="background-grid"></div>
             <div id="glow-hero" className="glow"></div>

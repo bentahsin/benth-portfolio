@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
+import JsonLd from '@/components/JsonLd';
 
 config.autoAddCss = false;
 
@@ -19,9 +20,40 @@ export async function generateMetadata({ params }) {
       title: 'Proje Bulunamadı',
     };
   }
+
+  const siteUrl = 'https://bentahsin.com';
+  const projectUrl = `${siteUrl}/projects/${project.slug}`;
+  const imageUrl = `${siteUrl}${project.image}`;
+
   return {
-    title: `${project.title} | bentahsin Proje Detayları`,
+    title: project.title,
     description: project.description,
+    
+    openGraph: {
+      title: `${project.title} | bentahsin Projesi`,
+      description: project.description,
+      url: projectUrl,
+      images: [
+        {
+          url: imageUrl,
+          width: 1200,
+          height: 675,
+          alt: `${project.title} Proje Görseli`,
+        },
+      ],
+      type: 'article',
+    },
+    
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | bentahsin Projesi`,
+      description: project.description,
+      images: [imageUrl],
+    },
+
+    alternates: {
+      canonical: projectUrl,
+    },
   };
 }
 
@@ -33,8 +65,22 @@ export default function ProjectCaseStudyPage({ params }) {
     notFound();
   }
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": project.caseStudyTitle,
+    "description": project.description,
+    "image": `https://www.bentahsin.com${project.image}`,
+    "author": {
+      "@type": "Person",
+      "name": "Tahsin",
+      "url": "https://www.bentahsin.com"
+    }
+  };
+
   return (
     <>
+      <JsonLd data={articleSchema} />
       <div className="cursor-dot"></div>
       <div className="cursor-outline"></div>
       <div className="background-effects">

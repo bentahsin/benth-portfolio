@@ -47,14 +47,14 @@ export default function Home() {
                     <div className="about-text">
                         <h3>Kimim Ben?</h3>
                         <p>
-                            Merhaba, adım Tahsin. 2014 yılında başlayan yazılım yolculuğumda kendimi sadece kod yazan bir geliştirici olarak değil, aynı zamanda dijital fikirleri hayata geçiren sağlam, güvenli ve ölçeklenebilir sistemlerin mimarı olarak konumlandırdım.
+                            Merhabalar, ben Tahsin. 2014'ten beri tutkuyla bağlı olduğum yazılım dünyasında, kendimi bir kod yazardan çok dijital bir mimar olarak görüyorum.
                         </p>
-                        <h3>Yazılım Felsefem</h3>
+                        <h3>Mimari Yaklaşımım</h3>
                         <p>
-                            Benim için yazılım geliştirme sadece kod yazmaktan ibaret değil; en zorlu koşullara bile dayanacak öngörülü ve sağlam sistemler kurmakla ilgilidir. Bu yaklaşım, çocukluktan kalma bir teknoloji tutkusuyla şekillendi ve tek bir mesleki ilkeye dayanıyor: Teslim ettiğim hiçbir iş &apos;tam kıvamında&apos; veya &apos;neredeyse bitmiş&apos; değildir.
+                            Yazılım geliştirmeyi, bir mimarın projesine yaklaştığı titizlikle ele alırım. Benim için bir projenin tamamlanması, kodun çalışması demek değildir. Proje, ancak her senaryo düşünüldüğünde, güvenlik katmanları örüldüğünde ve gelecekteki büyümeye kolayca adapte olabilecek esnek bir temel üzerine oturtulduğunda tamamlanmış sayılır.
                         </p>
                         <p>
-                            Her projeye bir mimar titizliğiyle yaklaşıyorum; sadece bugünün sorunlarını çözmekle kalmıyor, aynı zamanda yarının potansiyel zorluklarını da öngörüyorum.
+                            &quot;Neredeyse bitti&quot; veya &quot;şimdilik idare eder&quot; gibi kavramlar benim çalışma prensibimde yer almaz. Bir sistem ya güvenilirdir ya da değildir. Bu yüzden, teslim ettiğim her işin sadece bugünün değil, yarının da standartlarını karşılayan, öngörülü bir mühendisliğin ürünü olmasını hedeflerim.
                         </p>
                     </div>
                     <div className="about-image">

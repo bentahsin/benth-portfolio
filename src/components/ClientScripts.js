@@ -135,7 +135,7 @@ export default function ClientScripts() {
           });
 
           Object.values(glowMap).forEach(glow => glow?.classList.remove('visible'));
-          if (glowMap[mostVisibleId]) {
+          if (mostVisibleId !== 'hero' && glowMap[mostVisibleId]) {
             glowMap[mostVisibleId].classList.add('visible');
           }
 

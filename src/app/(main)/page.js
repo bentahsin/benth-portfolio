@@ -60,7 +60,8 @@ export default function Home() {
                     <div className="about-image">
                         <Image
                             src="https://avatars.githubusercontent.com/u/75451952?v=4"
-                            alt="Ben Tahsin Portre Fotoğrafı"
+                            alt="bentahsin GitHub Fotoğrafı"
+                            priority
                             width={300}
                             height={300}
                             style={{
@@ -230,7 +231,7 @@ export default function Home() {
                             className={`project-card ${index % 2 !== 0 ? 'reverse' : ''}`}
                         >
                             <div className="project-image">
-                                <Image src={project.image} alt={`${project.title} Proje Görseli`} width={600} height={400} style={{ objectFit: 'cover' }} />
+                                <Image src={project.image} alt={`${project.title} Proje Görseli`} width={600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">{project.title}</h3>

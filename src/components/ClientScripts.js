@@ -4,54 +4,55 @@ import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import ScrollReveal from 'scrollreveal';
 import VanillaTilt from 'vanilla-tilt';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function ClientScripts() {
   const pathname = usePathname();
-
+  const isDesktop = useMediaQuery('(min-width: 1024px)');
   useEffect(() => {
-    if (window.cursorInitialized) return;
+    if (isDesktop && !window.cursorInitialized) {
+      const cursorDot = document.querySelector('.cursor-dot');
+      const cursorOutline = document.querySelector('.cursor-outline');
 
-    const cursorDot = document.querySelector('.cursor-dot');
-    const cursorOutline = document.querySelector('.cursor-outline');
+      if (cursorDot && cursorOutline) {
+        window.cursorInitialized = true;
+        cursorDot.style.opacity = '1';
+        cursorOutline.style.opacity = '0.2';
 
-    if (cursorDot && cursorOutline) {
-      window.cursorInitialized = true;
-      cursorDot.style.opacity = '1';
-      cursorOutline.style.opacity = '0.2';
+        const mouse = { x: -100, y: -100 };
+        const dotPos = { x: 0, y: 0 };
+        const outlinePos = { x: 0, y: 0 };
+        const delay = 0.08;
+        let animationFrameId;
 
-      const mouse = { x: -100, y: -100 };
-      const dotPos = { x: 0, y: 0 };
-      const outlinePos = { x: 0, y: 0 };
-      const delay = 0.08;
-      let animationFrameId;
+        const animateCursor = () => {
+          dotPos.x += (mouse.x - dotPos.x) * 0.7;
+          dotPos.y += (mouse.y - dotPos.y) * 0.7;
+          cursorDot.style.transform = `translate(${dotPos.x - (cursorDot.offsetWidth / 2)}px, ${dotPos.y - (cursorDot.offsetHeight / 2)}px)`;
 
-      const animateCursor = () => {
-        dotPos.x += (mouse.x - dotPos.x) * 0.7;
-        dotPos.y += (mouse.y - dotPos.y) * 0.7;
-        cursorDot.style.transform = `translate(${dotPos.x - (cursorDot.offsetWidth / 2)}px, ${dotPos.y - (cursorDot.offsetHeight / 2)}px)`;
+          outlinePos.x += (mouse.x - outlinePos.x) * delay;
+          outlinePos.y += (mouse.y - outlinePos.y) * delay;
+          cursorOutline.style.transform = `translate(${outlinePos.x - (cursorOutline.offsetWidth / 2)}px, ${outlinePos.y - (cursorOutline.offsetHeight / 2)}px)`;
 
-        outlinePos.x += (mouse.x - outlinePos.x) * delay;
-        outlinePos.y += (mouse.y - outlinePos.y) * delay;
-        cursorOutline.style.transform = `translate(${outlinePos.x - (cursorOutline.offsetWidth / 2)}px, ${outlinePos.y - (cursorOutline.offsetHeight / 2)}px)`;
+          animationFrameId = requestAnimationFrame(animateCursor);
+        };
 
-        animationFrameId = requestAnimationFrame(animateCursor);
-      };
+        const handleMouseMove = (e) => {
+          mouse.x = e.clientX;
+          mouse.y = e.clientY;
+        };
 
-      const handleMouseMove = (e) => {
-        mouse.x = e.clientX;
-        mouse.y = e.clientY;
-      };
+        window.addEventListener('mousemove', handleMouseMove);
+        animateCursor();
 
-      window.addEventListener('mousemove', handleMouseMove);
-      animateCursor();
-
-      return () => {
-        window.removeEventListener('mousemove', handleMouseMove);
-        cancelAnimationFrame(animationFrameId);
-        window.cursorInitialized = false;
-      };
+        return () => {
+          window.removeEventListener('mousemove', handleMouseMove);
+          cancelAnimationFrame(animationFrameId);
+          window.cursorInitialized = false;
+        };
+      }
     }
-  }, []);
+  }, [isDesktop]);
 
   useEffect(() => {
     let sr;
@@ -95,14 +96,16 @@ export default function ClientScripts() {
       sr.reveal('.cta-button, .project-button, .back-button', { duration: 1000, delay: 1000, distance: '40px' });
       sr.reveal('.skill-item, .feature-item', { interval: 100 });
       sr.reveal('.expertise-category, .info-box', { delay: 500 });
-      
-      const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
-      VanillaTilt.init(tiltElements, {
-        max: 2,
-        speed: 10,
-        glare: false
-      });
-      
+
+      if (isDesktop) {
+        const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
+        VanillaTilt.init(tiltElements, {
+          max: 2,
+          speed: 10,
+          glare: false
+        });
+      }
+
       const handleAccordionClick = (e) => {
         const accordion = e.currentTarget;
         accordion.classList.toggle('is-open');
@@ -162,12 +165,14 @@ export default function ClientScripts() {
       });
       if (observer) observer.disconnect();
       if (sr) sr.destroy();
-      const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
-      tiltElements.forEach(el => {
-        if (el.vanillaTilt) el.vanillaTilt.destroy();
-      });
+      if (isDesktop) {
+        const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
+        tiltElements.forEach(el => {
+          if (el.vanillaTilt) el.vanillaTilt.destroy();
+        });
+      }
     };
-  }, [pathname]);
+  }, [pathname, isDesktop]);
 
   return null;
 }

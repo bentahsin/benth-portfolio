@@ -3,11 +3,12 @@
 import { useCallback, useMemo } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 
 const ParticleBackground = () => {
+  const isDesktop = useMediaQuery('(min-width: 768px)');
 
   const particlesInit = useCallback(async (engine) => {
-
     await loadSlim(engine);
   }, []);
 
@@ -75,6 +76,10 @@ const ParticleBackground = () => {
     }),
     [],
   );
+
+  if (!isDesktop) {
+    return null;
+  }
 
   return (
     <Particles

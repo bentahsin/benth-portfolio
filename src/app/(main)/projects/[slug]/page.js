@@ -66,21 +66,7 @@ export default function ProjectCaseStudyPage({ params }) {
     notFound();
   }
 
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": project.caseStudyTitle,
-    "description": project.description,
-    "image": `https://www.bentahsin.com${project.image}`,
-    "author": {
-      "@type": "Person",
-      "name": "Tahsin",
-      "url": "https://www.bentahsin.com"
-    },
-    "mainEntity": softwareAppSchema
-  };
-
-  const softwareAppSchema = {
+    const softwareAppSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": project.title,
@@ -95,6 +81,20 @@ export default function ProjectCaseStudyPage({ params }) {
       "name": "Tahsin",
       "url": siteUrl
     }
+  };
+
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": project.caseStudyTitle,
+    "description": project.description,
+    "image": `https://www.bentahsin.com${project.image}`,
+    "author": {
+      "@type": "Person",
+      "name": "Tahsin",
+      "url": "https://www.bentahsin.com"
+    },
+    "mainEntity": softwareAppSchema
   };
 
   return (

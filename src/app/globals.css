@@ -6,8 +6,8 @@
     --cursor-dot: #8c469e;
     --card-bg: #1f212773;
     --footer-bg: #13192571;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Montserrat', sans-serif;
+    --font-heading: var(--font-montserrat), sans-serif;
+    --font-body: var(--font-montserrat), sans-serif;
 }
 
 * {

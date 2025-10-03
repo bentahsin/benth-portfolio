@@ -1,8 +1,9 @@
 'use client'; 
 
 import { useEffect } from 'react';
-import Script from 'next/script';
 import { usePathname } from 'next/navigation';
+import ScrollReveal from 'scrollreveal';
+import VanillaTilt from 'vanilla-tilt';
 
 export default function ClientScripts() {
   const pathname = usePathname();
@@ -22,7 +23,6 @@ export default function ClientScripts() {
       const dotPos = { x: 0, y: 0 };
       const outlinePos = { x: 0, y: 0 };
       const delay = 0.08;
-
       let animationFrameId;
 
       const animateCursor = () => {
@@ -44,6 +44,12 @@ export default function ClientScripts() {
 
       window.addEventListener('mousemove', handleMouseMove);
       animateCursor();
+
+      return () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        cancelAnimationFrame(animationFrameId);
+        window.cursorInitialized = false;
+      };
     }
   }, []);
 
@@ -53,11 +59,6 @@ export default function ClientScripts() {
     const eventListeners = [];
 
     const initializePageSpecificAnimations = () => {
-      if (typeof window.ScrollReveal === 'undefined' || typeof window.VanillaTilt === 'undefined') {
-        setTimeout(initializePageSpecificAnimations, 100);
-        return;
-      }
-
       const addListener = (element, type, handler) => {
         if(element) {
             element.addEventListener(type, handler);
@@ -77,8 +78,14 @@ export default function ClientScripts() {
           addListener(el, 'mouseover', handleMouseOver);
           addListener(el, 'mouseleave', handleMouseLeave);
       });
-      sr = window.ScrollReveal({
-        origin: 'bottom', distance: '60px', duration: 1500, delay: 200, easing: 'ease-out', reset: false
+      
+      sr = ScrollReveal({
+        origin: 'bottom',
+        distance: '60px',
+        duration: 1500,
+        delay: 200,
+        easing: 'ease-out',
+        reset: false
       });
       sr.reveal('.section-title, .case-title, .case-section-header');
       sr.reveal('.about-content, .projects-container, .contact-content, .case-study article', { delay: 400 });
@@ -88,8 +95,14 @@ export default function ClientScripts() {
       sr.reveal('.cta-button, .project-button, .back-button', { duration: 1000, delay: 1000, distance: '40px' });
       sr.reveal('.skill-item, .feature-item', { interval: 100 });
       sr.reveal('.expertise-category, .info-box', { delay: 500 });
+      
       const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
-      window.VanillaTilt.init(tiltElements, { max: 2, speed: 10, glare: false });
+      VanillaTilt.init(tiltElements, {
+        max: 2,
+        speed: 10,
+        glare: false
+      });
+      
       const handleAccordionClick = (e) => {
         const accordion = e.currentTarget;
         accordion.classList.toggle('is-open');
@@ -156,10 +169,5 @@ export default function ClientScripts() {
     };
   }, [pathname]);
 
-  return (
-    <>
-      <Script src="/scrollreveal.js" strategy="afterInteractive" />
-      <Script src="/vanilla-tilt.min.js" strategy="afterInteractive" />
-    </>
-  );
+  return null;
 }

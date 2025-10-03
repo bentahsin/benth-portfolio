@@ -114,14 +114,14 @@ export default function ProjectCaseStudyPage({ params }) {
                 <i className="fa-solid fa-arrow-left"></i> Projelere Geri Dön
             </Link>
             <article>
-            <h2 className="case-title">
+            <h1 className="case-title">
               <span className="sr-only">
                 {project.seoTitle || project.title}
               </span>
               <span aria-hidden="true">
                 {project.caseStudyTitle}
               </span>
-            </h2>
+            </h1>
             <div className="project-tags">
               {project.tagIcons}
             </div>

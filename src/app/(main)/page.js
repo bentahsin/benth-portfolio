@@ -34,7 +34,7 @@ export default function Home() {
             <section id="hero">
                 <div className="hero-content">
                     <h1>Selam! Ben Tahsin.</h1>
-                    <h4>Backend Geliştirici • Minecraft Eklenti Geliştiricisi • C#/C++ Geliştirici</h4>
+                    <p className="hero-subtitle">Backend Geliştirici • Minecraft Eklenti Geliştiricisi • C#/C++ Geliştirici</p>
                     <p className="hero-intro">
                         Yazılım geliştirme, yalnızca bir soruna çözüm bulmaktan çok daha fazlasıdır; geleceği öngörme ve en zorlu koşullara bile dayanacak yapılar tasarlama sanatıdır. Felsefem de bu temel üzerine kuruludur.
                     </p>

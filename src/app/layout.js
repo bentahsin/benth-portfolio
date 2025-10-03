@@ -7,8 +7,8 @@ const siteUrl = 'https://bentahsin.com';
 
 export const metadata = {
   title: {
-    default: 'bentahsin.com | Tahsin, Backend Developer',
-    template: '%s | bentahsin.com',
+    default: 'bentahsin | Backend & Minecraft Eklenti Geliştiricisi',
+    template: '%s | bentahsin Portfolio',
   },
   description: 'Yazılımda karmaşık problemlere radikal ve sağlam çözümler üreten bir Backend ve Minecraft Eklenti Geliştiricisi.',
   keywords: ['Backend Developer', 'Minecraft Plugin Developer', 'Java', 'C#', 'C++', 'Node.js', 'Next.js', 'bentahsin', 'Tahsin'],
@@ -27,7 +27,7 @@ export const metadata = {
   },
 
   openGraph: {
-    title: 'bentahsin.com | Tahsin, Backend Developer',
+    title: 'bentahsin | Backend & Minecraft Eklenti Geliştiricisi',
     description: 'Yazılımda karmaşık problemlere radikal ve sağlam çözümler üreten bir Backend ve Minecraft Eklenti Geliştiricisi.',
     url: siteUrl,
     siteName: 'bentahsin Portfolio',
@@ -45,7 +45,7 @@ export const metadata = {
   
   twitter: {
     card: 'summary_large_image',
-    title: 'bentahsin | Backend Developer',
+    title: 'bentahsin | Backend & Minecraft Eklenti Geliştiricisi',
     description: 'Yazılımda karmaşık problemlere radikal ve sağlam çözümler üreten bir Backend ve Minecraft Eklenti Geliştiricisi.',
     images: [`${siteUrl}/social-card.png`],
   },

@@ -1,14 +1,14 @@
+// File: components/ClientScripts.js
 'use client'; 
 
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import ScrollReveal from 'scrollreveal';
-import VanillaTilt from 'vanilla-tilt';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export default function ClientScripts() {
   const pathname = usePathname();
   const isDesktop = useMediaQuery('(min-width: 1024px)');
+
   useEffect(() => {
     if (isDesktop && !window.cursorInitialized) {
       const cursorDot = document.querySelector('.cursor-dot');
@@ -58,12 +58,15 @@ export default function ClientScripts() {
     let sr;
     let observer;
     const eventListeners = [];
+    let tiltElements = [];
 
-    const initializePageSpecificAnimations = () => {
+    const initializeAnimations = async () => {
+      const ScrollReveal = (await import('scrollreveal')).default;
+
       const addListener = (element, type, handler) => {
         if(element) {
-            element.addEventListener(type, handler);
-            eventListeners.push({ element, type, handler });
+          element.addEventListener(type, handler);
+          eventListeners.push({ element, type, handler });
         }
       };
 
@@ -73,20 +76,17 @@ export default function ClientScripts() {
       };
       addListener(window, 'scroll', handleScroll);
 
-      document.querySelectorAll('a, button, .skill-item, .project-card, .accordion').forEach(el => {
-          const handleMouseOver = () => document.querySelector('.cursor-outline')?.classList.add('hovered');
-          const handleMouseLeave = () => document.querySelector('.cursor-outline')?.classList.remove('hovered');
-          addListener(el, 'mouseover', handleMouseOver);
-          addListener(el, 'mouseleave', handleMouseLeave);
-      });
-      
+      if(isDesktop) {
+        document.querySelectorAll('a, button, .skill-item, .project-card, .accordion').forEach(el => {
+            const handleMouseOver = () => document.querySelector('.cursor-outline')?.classList.add('hovered');
+            const handleMouseLeave = () => document.querySelector('.cursor-outline')?.classList.remove('hovered');
+            addListener(el, 'mouseover', handleMouseOver);
+            addListener(el, 'mouseleave', handleMouseLeave);
+        });
+      }
+
       sr = ScrollReveal({
-        origin: 'bottom',
-        distance: '60px',
-        duration: 1500,
-        delay: 200,
-        easing: 'ease-out',
-        reset: false
+        origin: 'bottom', distance: '60px', duration: 1500, delay: 200, easing: 'ease-out', reset: false
       });
       sr.reveal('.section-title, .case-title, .case-section-header');
       sr.reveal('.about-content, .projects-container, .contact-content, .case-study article', { delay: 400 });
@@ -98,12 +98,9 @@ export default function ClientScripts() {
       sr.reveal('.expertise-category, .info-box', { delay: 500 });
 
       if (isDesktop) {
-        const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
-        VanillaTilt.init(tiltElements, {
-          max: 2,
-          speed: 10,
-          glare: false
-        });
+        const VanillaTilt = (await import('vanilla-tilt')).default;
+        tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
+        VanillaTilt.init(tiltElements, { max: 2, speed: 10, glare: false });
       }
 
       const handleAccordionClick = (e) => {
@@ -137,16 +134,11 @@ export default function ClientScripts() {
             }
           });
 
-          Object.keys(glowMap).forEach(key => {
-            const glowElement = glowMap[key];
-            if (glowElement) {
-              if (key === mostVisibleId) {
-                glowElement.classList.add('visible');
-              } else {
-                glowElement.classList.remove('visible');
-              }
-            }
-          });
+          Object.values(glowMap).forEach(glow => glow?.classList.remove('visible'));
+          if (glowMap[mostVisibleId]) {
+            glowMap[mostVisibleId].classList.add('visible');
+          }
+
         }, {
           threshold: Array.from({ length: 101 }, (_, i) => i / 100),
         });
@@ -156,8 +148,8 @@ export default function ClientScripts() {
         });
       }
     };
-
-    initializePageSpecificAnimations();
+    
+    initializeAnimations();
 
     return () => {
       eventListeners.forEach(({ element, type, handler }) => {
@@ -165,10 +157,12 @@ export default function ClientScripts() {
       });
       if (observer) observer.disconnect();
       if (sr) sr.destroy();
-      if (isDesktop) {
-        const tiltElements = document.querySelectorAll(".project-card, .skill-item, .expertise-item");
+      
+      if (isDesktop && tiltElements.length > 0) {
         tiltElements.forEach(el => {
-          if (el.vanillaTilt) el.vanillaTilt.destroy();
+            if (el.vanillaTilt) {
+                el.vanillaTilt.destroy();
+            }
         });
       }
     };

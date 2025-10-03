@@ -507,7 +507,8 @@ export const projectsData = [
   },
   {
     slug: 'antiafk',
-    title: 'AntiAFK - Akıllı AFK Oyuncu Tespiti',
+    title: 'AntiAFK',
+    subtitle: 'Sezgisel AFK Bot Tespiti',
     image: '/assets/AntiAFK.png',
     projectUrl: ['https://modrinth.com/plugin/antiafk-plugin', 'https://github.com/bentahsin/AntiAFK'],
     tags: [],

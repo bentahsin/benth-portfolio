@@ -66,6 +66,9 @@ export default function ProjectCaseStudyPage({ params }) {
     notFound();
   }
 
+  const siteUrl = 'https://bentahsin.com';
+  const pageUrl = `${siteUrl}/projects/${slug}`;
+
     const softwareAppSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -88,11 +91,11 @@ export default function ProjectCaseStudyPage({ params }) {
     "@type": "Article",
     "headline": project.caseStudyTitle,
     "description": project.description,
-    "image": `https://www.bentahsin.com${project.image}`,
+    "image": `https://bentahsin.com${project.image}`,
     "author": {
       "@type": "Person",
       "name": "Tahsin",
-      "url": "https://www.bentahsin.com"
+      "url": "https://bentahsin.com"
     },
     "mainEntity": softwareAppSchema
   };

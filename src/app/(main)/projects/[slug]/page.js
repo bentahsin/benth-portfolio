@@ -24,13 +24,14 @@ export async function generateMetadata({ params }) {
   const siteUrl = 'https://bentahsin.com';
   const projectUrl = `${siteUrl}/projects/${project.slug}`;
   const imageUrl = `${siteUrl}${project.image}`;
+  const pageTitle = `${project.title} - ${project.subtitle}`;
 
   return {
-    title: project.title,
+    title: pageTitle,
     description: project.description,
     
     openGraph: {
-      title: `${project.title} | bentahsin Projesi`,
+      title: pageTitle,
       description: project.description,
       url: projectUrl,
       images: [
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }) {
     
     twitter: {
       card: 'summary_large_image',
-      title: `${project.title} | bentahsin Projesi`,
+      title: pageTitle,
       description: project.description,
       images: [imageUrl],
     },
@@ -75,6 +76,24 @@ export default function ProjectCaseStudyPage({ params }) {
       "@type": "Person",
       "name": "Tahsin",
       "url": "https://www.bentahsin.com"
+    },
+    "mainEntity": softwareAppSchema
+  };
+
+  const softwareAppSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": project.title,
+    "url": pageUrl,
+    "sameAs": project.projectUrl || [],
+    "image": `${siteUrl}${project.image}`,
+    "description": project.description,
+    "applicationCategory": "Game",
+    "operatingSystem": "Java Virtual Machine",
+    "author": {
+      "@type": "Person",
+      "name": "Tahsin",
+      "url": siteUrl
     }
   };
 
@@ -92,7 +111,14 @@ export default function ProjectCaseStudyPage({ params }) {
                 <i className="fa-solid fa-arrow-left"></i> Projelere Geri Dön
             </Link>
             <article>
-            <h2 className="case-title">{project.caseStudyTitle}</h2>
+            <h2 className="case-title">
+              <span className="sr-only">
+                {project.seoTitle || project.title}
+              </span>
+              <span aria-hidden="true">
+                {project.caseStudyTitle}
+              </span>
+            </h2>
             <div className="project-tags">
               {project.tagIcons}
             </div>

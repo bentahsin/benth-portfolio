@@ -234,6 +234,17 @@ export default function Home() {
                             </div>
                             <div className="project-info">
                                 <h3 className="project-title">{project.title}</h3>
+                                {project.subtitle && (
+                                <p style={{
+                                    marginTop: '-0.75rem',
+                                    marginBottom: '1.5rem',
+                                    color: 'var(--text-secondary)',
+                                    fontSize: '1rem',
+                                    fontWeight: '500'
+                                }}>
+                                    {project.subtitle}
+                                </p>
+                                )}
                                 <div className="project-tags">
                                     {project.tagIcons}
                                     {project.tags.map(tag => (

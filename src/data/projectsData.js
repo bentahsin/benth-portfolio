@@ -293,61 +293,61 @@ const caseStudies = {
     </>
   ),
   antiafk: (
-    <>
-      <SectionHeader icon={faBrain}>Sunucunuzu Akıllıca Koruyun, Oyuncu Deneyimini Zirveye Taşıyın</SectionHeader>
-      <p>Sunucu yönetimi karmaşık bir iştir. Oyuncu memnuniyeti, sunucu performansı ve adil bir ekonomi dengesi arasında sürekli bir denge kurmak zorundasınız. Peki ya tüm bu dengeyi bozan sessiz bir tehdit varsa? <strong>AFK (Away From Keyboard) kalan oyuncular.</strong></p>
-      <p>Sadece sunucunuzda değerli bir yer işgal etmekle kalmaz, aynı zamanda AFK farmları aracılığıyla ekonominizi alt üst edebilir ve aktif oyuncularınızın hakkını yiyebilirler. Standart AFK eklentileri ise basit botlar tarafından kolayca aşılabilir.</p>
-      <p><strong>AntiAFK, bir AFK eklentisinden çok daha fazlasıdır. Sunucunuz için geliştirilmiş akıllı bir koruma kalkanıdır.</strong></p>
+      <>
+        <SectionHeader icon={faBrain}>Sunucunuzu Akıllıca Koruyun, Oyuncu Deneyimini Zirveye Taşıyın</SectionHeader>
+        <p>Sunucu yönetimi karmaşık bir iştir. Oyuncu memnuniyeti, sunucu performansı ve adil bir ekonomi dengesi arasında sürekli bir denge kurmak zorundasınız. Peki ya tüm bu dengeyi bozan sessiz bir tehdit varsa? <strong>AFK (Away From Keyboard) kalan oyuncular, yani afk players.</strong></p>
+        <p>Sadece sunucunuzda değerli bir yer işgal etmekle kalmaz, aynı zamanda AFK farmları aracılığıyla ekonominizi alt üst edebilir ve aktif oyuncularınızın hakkını yiyebilirler. Standart **anti afk** eklentileri ise basit botlar tarafından kolayca aşılabilir.</p>
+        <p><strong>AntiAFK, bir AFK eklentisinden çok daha fazlasıdır. Sunucunuz için geliştirilmiş akıllı bir koruma kalkanıdır.</strong></p>
 
-      <hr />
+        <hr />
 
-      <SectionHeader icon={faCogs}>Sıradan Çözümleri Unutun: AntiAFK&apos;nın Üstün Zekası</SectionHeader>
-      <ul className="feature-list">
-        <FeatureItem icon={faChartLine}>
-          <strong>Gelişmiş Davranış Analizi:</strong> Sürekli aynı daireyi çizen, ileri geri yürüyen veya belirli bir rotayı tekrar eden botlar artık sorun değil. AntiAFK, oyuncuların hareket yörüngelerini analiz eder ve insan eliyle yapılması imkansız olan tekrarlayan kalıpları anında tespit eder.
-        </FeatureItem>
-        <FeatureItem icon={faBinoculars}>
-          <strong>Çok Yönlü Aktivite Tespiti:</strong> Kamera hareketleri, sohbet, envanter kullanımı, saldırı yapma ve blok kırma gibi onlarca farklı aktiviteyi izleyerek &quot;Auto-clicker&quot; kullanan oyuncuları anında yakalar.
-        </FeatureItem>
-        <FeatureItem icon={faMapMarkedAlt}>
-          <strong>Akıllı Bölgesel Yönetim:</strong> WorldGuard entegrasyonu ile sunucunuzun her bölgesi (lobi, pazar, pvp arenası) için farklı AFK kuralları belirleyerek tam kontrol ve esneklik sağlarsınız.
-        </FeatureItem>
-      </ul>
-
-      <hr />
-
-      <SectionHeader icon={faDesktop}>Yönetimi Karmaşık Değil, Keyifli Hale Getirin</SectionHeader>
-      <ul className="feature-list">
-          <FeatureItem icon={faDesktop}>
-              <strong>Tamamen Oyun İçi Yönetim Paneli (GUI):</strong> FTP&apos;ye bağlanmanıza veya karmaşık config dosyalarıyla boğuşmanıza gerek yok. <code>/antiafk panel</code> komutuyla tüm ayarları anında değiştirin ve zamandan muazzam tasarruf edin.
-          </FeatureItem>
-          <FeatureItem icon={faFileSignature}>
-              <strong>Gelişmiş Komut Düzenleyici:</strong> ProtocolLib entegrasyonu ile bölge aksiyonları için uzun ve karmaşık komutları bile oyun içindeki kitap arayüzü sayesinde rahatça yazıp kaydedin, hata riskini ortadan kaldırın.
-          </FeatureItem>
-      </ul>
-
-      <InfoBox title="Neden Sunucunuz AntiAFK'ya İhtiyaç Duyuyor?" icon={faRocket}>
+        <SectionHeader icon={faCogs}>Sıradan Çözümleri Unutun: AntiAFK'nın Üstün Zekası</SectionHeader>
         <ul className="feature-list">
-            <FeatureItem icon={faBalanceScale}>
-                <strong>Adaleti Sağlamak İçin:</strong> Aktif oyuncularınızın, AFK hileleri yapanlar yüzünden geride kalmasını önleyin.
+          <FeatureItem icon={faChartLine}>
+            <strong>Gelişmiş Davranış Analizi:</strong> Sürekli aynı daireyi çizen, ileri geri yürüyen veya belirli bir rotayı tekrar eden botlar artık sorun değil. AntiAFK, oyuncuların hareket yörüngelerini analiz eder ve insan eliyle yapılması imkansız olan tekrarlayan kalıpları anında tespit eder.
+          </FeatureItem>
+          <FeatureItem icon={faBinoculars}>
+            <strong>Çok Yönlü Aktivite Tespiti:</strong> Kamera hareketleri, sohbet, envanter kullanımı, saldırı yapma ve blok kırma gibi onlarca farklı aktiviteyi izleyerek &quot;Auto-clicker&quot; kullanan oyuncuları anında yakalar.
+          </FeatureItem>
+          <FeatureItem icon={faMapMarkedAlt}>
+            <strong>Akıllı Bölgesel Yönetim:</strong> WorldGuard entegrasyonu ile sunucunuzun her bölgesi (lobi, pazar, pvp arenası) için farklı AFK kuralları belirleyerek tam kontrol ve esneklik sağlarsınız.
+          </FeatureItem>
+        </ul>
+
+        <hr />
+
+        <SectionHeader icon={faDesktop}>Yönetimi Karmaşık Değil, Keyifli Hale Getirin</SectionHeader>
+        <ul className="feature-list">
+            <FeatureItem icon={faDesktop}>
+                <strong>Tamamen Oyun İçi Yönetim Paneli (GUI):</strong> FTP'ye bağlanmanıza veya karmaşık config dosyalarıyla boğuşmanıza gerek yok. <code>/antiafk panel</code> komutuyla tüm ayarları anında değiştirin. Hatta <code>antiafk reload</code> gibi komutlara bile gerek kalmadan değişiklikler anında yansır.
             </FeatureItem>
-            <FeatureItem icon={faPiggyBank}>
-                <strong>Ekonomiyi Korumak İçin:</strong> AFK Farmların yarattığı enflasyonun ve dengesizliğin önüne geçin.
-            </FeatureItem>
-             <FeatureItem icon={faTachometerAlt}>
-                <strong>Sunucu Performansı İçin:</strong> Gereksiz AFK oyuncularını otomatik olarak uzaklaştırarak sunucunuzda yer açın.
-            </FeatureItem>
-            <FeatureItem icon={faUserTie}>
-                <strong>Profesyonel Bir İmaj İçin:</strong> Oyuncularınıza, sunucunuzun adil ve iyi yönetilen bir yer olduğunu gösterin.
-            </FeatureItem>
-            <FeatureItem icon={faGamepad}>
-                <strong>Tam Kontrol İçin:</strong> Kuralları siz belirleyin. AFK sistemini sunucunuzun her köşesine göre özelleştirin.
+            <FeatureItem icon={faFileSignature}>
+                <strong>Gelişmiş Komut Düzenleyici:</strong> ProtocolLib entegrasyonu ile bölge aksiyonları için uzun ve karmaşık komutları bile oyun içindeki kitap arayüzü sayesinde rahatça yazıp kaydedin, hata riskini ortadan kaldırın.
             </FeatureItem>
         </ul>
-      </InfoBox>
 
-      <p><strong>Sunucunuzu bir üst seviyeye taşımaya hazır mısınız? AntiAFK ile kontrolü elinize alın ve oyuncularınıza hak ettikleri adil ve akıcı deneyimi sunun.</strong></p>
-    </>
+        <InfoBox title="Neden Sunucunuz AntiAFK'ya İhtiyaç Duyuyor?" icon={faRocket}>
+          <ul className="feature-list">
+              <FeatureItem icon={faBalanceScale}>
+                  <strong>Adaleti Sağlamak İçin:</strong> Aktif oyuncularınızın, AFK hileleri yapanlar yüzünden geride kalmasını önleyin.
+              </FeatureItem>
+              <FeatureItem icon={faPiggyBank}>
+                  <strong>Ekonomiyi Korumak İçin:</strong> AFK Farmların yarattığı enflasyonun ve dengesizliğin önüne geçin.
+              </FeatureItem>
+               <FeatureItem icon={faTachometerAlt}>
+                  <strong>Sunucu Performansı İçin:</strong> Gereksiz **afk players**'ı otomatik olarak uzaklaştırarak sunucunuzda yer açın.
+              </FeatureItem>
+              <FeatureItem icon={faUserTie}>
+                  <strong>Profesyonel Bir İmaj İçin:</strong> Oyuncularınıza, sunucunuzun adil ve iyi yönetilen bir yer olduğunu gösterin.
+              </FeatureItem>
+              <FeatureItem icon={faGamepad}>
+                  <strong>Tam Kontrol İçin:</strong> Kuralları siz belirleyin. **AntiAFK** sistemini sunucunuzun her köşesine göre özelleştirin.
+              </FeatureItem>
+          </ul>
+        </InfoBox>
+
+        <p><strong>Sunucunuzu bir üst seviyeye taşımaya hazır mısınız? AntiAFK ile kontrolü elinize alın ve oyuncularınıza hak ettikleri adil ve akıcı deneyimi sunun.</strong></p>
+      </>
   ),
   benthfarming: (
     <>
@@ -471,62 +471,74 @@ const caseStudies = {
 export const projectsData = [
   {
     slug: 'benthpatcher',
-    title: 'BenthLicense AutoPatcher',
+    title: 'BenthPatcher',
+    subtitle: 'Java Bytecode Manipülasyon CLI Aracı',
     image: '/assets/benthpatcher-16-9.png',
-    tags: [],
+    tags: ['Bytecode Manipulation', 'CLI Aracı', 'Otomatik Lisanslama', 'JAR Enjeksiyonu', 'Geliştirici Araçları'],
     tagIcons: [<JavaIcon key="java" />],
-    description: "Bukkit / Spigot / Paper API ile yazılmış eklentilerin lisanslanmasını kolaylaştırır. Birkaç komut satırı, Patcher'a sağlanan Jar dosyasının \"Java ByteCode\"unu analiz eder, gerekli değişiklikleri yapar ve lisanslı Jar dosyasını oluşturur. Ayrıca, BenthLicense API sunucusu için DataBank verilerini içeren bir JSON dosyası da sağlar.",
+    description: "Java uygulamalarınıza ve Minecraft eklentilerinize, kaynak kodunu değiştirmeden lisanslama ekleyin. BenthPatcher CLI aracı, bytecode manipülasyonu ile .jar dosyalarınıza saniyeler içinde güvenlik katmanı enjekte eder.",
     caseStudyContent: caseStudies.benthpatcher,
-    caseStudyTitle: <>Detaylı Bilgi: <BenthPatcherBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <BenthPatcherBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthPatcher CLI Aracı'
   },
   {
     slug: 'benthlicense-api',
-    title: 'BenthLicense API Server',
+    title: 'BenthLicense API',
+    subtitle: 'Gerçek Zamanlı Lisans Yönetim Sunucusu',
     image: '/assets/benthlicenseapi-16-9.png',
-    tags: [],
+    tags: ['WebSocket API', 'REST API', 'Gerçek Zamanlı Yönetim', 'Merkezi Kontrol', 'RBAC Yetkilendirme'],
     tagIcons: [<NodeJSIcon key="node" />, <FastifyIcon key="fastify" />, <PostgreSQLIcon key="postgres" />, <RedisIcon key="redis" />],
-    description: "BenthLicense API lisans kontrol sunucusu, hız, güvenlik ve esneklik arasında hassas bir denge kuran çok katmanlı bir güvenlik zırhı ile şık ve modern paneliyle güzel bir deneyim sunarken, anında iletişim için WebSocket ve evrensel uyumluluk için REST sunar.",
+    description: "Dijital ürünleriniz için merkezi ve güvenli bir lisans yönetim platformu. Node.js, Fastify ve PostgreSQL üzerine kurulu olup, WebSocket ve REST API'leri ile tam kontrol ve gerçek zamanlı yönetim sağlar.",
     caseStudyContent: caseStudies.benthlicenseApi,
-    caseStudyTitle: <>Detaylı Bilgi: <BenthLicenseAPIBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <BenthLicenseAPIBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthLicense API Sunucusu'
   },
   {
     slug: 'benthlicense-lib',
-    title: 'BenthLicense Library (Java)',
+    title: 'BenthLicense Kütüphanesi',
+    subtitle: 'Java için Güçlü Lisanslama ve Anti-Tamper Kütüphanesi',
     image: '/assets/LicenseLib-16-9.png',
-    tags: ['Java Native Interface', 'Cryptography', 'Parallel Handshake', 'Anti-Tamper', 'Anti Java Agent/Debugger', 'DataBank'],
+    tags: ['Java Native Interface', 'Cryptography', 'Anti-Tamper', 'JNI Security', 'Anti Java Agent', 'Bytecode Fingerprinting'],
     tagIcons: [<JavaIcon key="java" />, <CppIcon key="cpp" />],
-    description: "Kullanıcı dostu arayüzün arkasında tavizsiz bir güvenlik felsefesini gizleyen, BenthPathcer ile entegrasyonu geliştiriciler için inanılmaz derecede kolaylaştıran, ancak potansiyel saldırganlar için kırılmasını neredeyse imkansız hale getiren bir istemci kütüphanesi.",
+    description: "Java uygulamalarınızı JNI, Kriptografi ve Anti-Tamper teknolojileriyle koruyan istemci kütüphanesi. BenthPatcher ile tam entegre çalışarak kırılması neredeyse imkansız bir güvenlik katmanı sağlar.",
     caseStudyContent: caseStudies.benthlicenseLib,
-    caseStudyTitle: <>Detaylı Bilgi: <LicenseLibBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <LicenseLibBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthLicense Kütüphanesi'
   },
   {
     slug: 'antiafk',
-    title: 'AntiAFK',
+    title: 'AntiAFK - Akıllı AFK Oyuncu Tespiti',
     image: '/assets/AntiAFK.png',
+    projectUrl: ['https://modrinth.com/plugin/antiafk-plugin', 'https://github.com/bentahsin/AntiAFK'],
     tags: [],
     tagIcons: [<JavaIcon key="java" />],
-    description: "Sunucu performansını (TPS) düşürmeden, akıllı algoritmalarla aktifmiş gibi davranan oyuncuları tespit eden bir Minecraft eklentisi. Eklenti, sıra dışı bir rota tabanlı kontrol sistemi sunuyor.",
+    description: "Sunucu performansını düşürmeden, akıllı algoritmalarla aktifmiş gibi davranan oyuncuları tespit eden bir AntiAFK Minecraft eklentisi. Eklenti, sıra dışı bir rota tabanlı kontrol sistemi sunuyor.",
     caseStudyContent: caseStudies.antiafk,
-    caseStudyTitle: <>Detaylı Bilgi: <AntiAfkBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <AntiAfkBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: AntiAFK'
   },
   {
     slug: 'benthfarming',
     title: 'BenthFarming',
+    subtitle: 'Minecraft için Dinamik Tarım Sistemi',
     image: '/assets/BenthFarming_16-9.png',
     tags: [],
     tagIcons: [<JavaIcon key="java" />, <SQLiteIcon key="sqlite" />, <MySQLIcon key="mysql" />],
-    description: "Sunucunuzun daha etkileşimli bir hale gelmesi için BenthFarming eklentimiz, ana \"date_based\" ve \"regeneration\" modları altında ayrılmış 3 farklı mod sunar. GUI kontrol paneli sayesinde yapılandırması kolay bir yapıya sahiptir. Geliştiriciler için kapsamlı bir API mevcuttur.",
+    description: "Minecraft sunucunuzdaki tarım mekaniklerini, özel çapalar, entegre dükkan ve etkinlik modları ile ödüllendirici bir maceraya dönüştürün. Geliştiriciler için tam API desteği sunar.",
     caseStudyContent: caseStudies.benthfarming,
-    caseStudyTitle: <>Detaylı Bilgi: <BenthFarmingBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <BenthFarmingBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthFarming'
   },
   {
     slug: 'benthdungeons',
     title: 'BenthDungeons',
+    subtitle: 'MythicDungeons için Kademe ve Bilet Sistemi',
     image: '/assets/BenthDungeons_4-3.png',
-    tags: [],
+    tags: ['Java Reflection', 'MythicDungeons API', 'Plugin Entegrasyonu', 'Kademe Sistemi'],
     tagIcons: [<JavaIcon key="java" />, <SQLiteIcon key="sqlite" />, <MySQLIcon key="mysql" />],
-    description: "Popüler bir aracın kilitli API'lerinin, Java Reflection gibi ileri düzey teknikler kullanılarak aşıldığı ve topluluk tarafından istenen özelliklerin geliştirildiği uzman bir entegrasyon projesi.",
+    description: "MythicDungeons sunucunuzu Kademe ve Bilet sistemleri ile profesyonelleştirin. Kilitli API'lere Java Reflection ile erişerek oyunculara net ilerleme hedefleri ve sunucu ekonominize entegre bir yapı sunan add-on.",
     caseStudyContent: caseStudies.benthdungeons,
-    caseStudyTitle: <>Detaylı Bilgi: <BenthDungeonsBlockText /></>
+    caseStudyTitle: <>Detaylı Bilgi: <BenthDungeonsBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthDungeons Add-on'
   }
 ];

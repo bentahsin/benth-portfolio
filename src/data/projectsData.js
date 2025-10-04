@@ -43,7 +43,17 @@ import {
   faMicrochip,
   faFingerprint,
   faSatelliteDish,
-  faMagic
+  faMagic,
+  faUserCog,
+  faBlog,
+  faShoppingCart,
+  faHeadset,
+  faBullhorn,
+  faSearchDollar,
+  faRobot,
+  faBook,
+  faBoxOpen,
+  faDatabase
 } from '@fortawesome/free-solid-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -68,6 +78,7 @@ import BenthFarmingBlockText from '@/components/Images/BenthFarmingBlockText';
 import BenthPatcherBlockText from '@/components/Images/BenthPatcherBlockText';
 import LicenseLibBlockText from '@/components/Images/LicenseLibBlockText';
 import BenthLicenseAPIBlockText from '@/components/Images/BenthLicenseAPIBlockText';
+import MynerithBlockText from '@/components/Images/MynerithBlockText';
 
 const beforePatchCode = `
 import org.bukkit.plugin.java.JavaPlugin;
@@ -466,9 +477,72 @@ const caseStudies = {
       <p>MythicDungeons ile yarattığınız harika içerikleri, BenthDungeons&apos;ın sunduğu profesyonel sistemlerle birleştirin. Sunucunuza hak ettiği yapıyı ve derinliği bugün kazandırın.</p>
     </>
   ),
+  mynerith: (
+          <>
+        <SectionHeader icon={faRocket}>Proje Özeti</SectionHeader>
+        <p><strong>Mynerith</strong>, modern web teknolojileriyle geliştirilmiş, dijital ürün satışı, içerik yönetimi (CMS) ve müşteri desteği için tasarlanmış kişisel ve tam özellikli bir e-ticaret çözümüdür. Proje, Next.js App Router'ın gücünü kullanarak sunucu tarafında render edilen (SSR), SEO dostu ve ölçeklenebilir bir yapı sunar. Arka planda BullMQ ve Redis ile yönetilen asenkron iş kuyrukları, LangChain.js ve Google Gemini ile oluşturulmuş gelişmiş yapay zeka agent mimarisi ve Prisma ile entegre edilmiş sağlam veritabanı yapısıyla kurumsal düzeyde bir uygulama altyapısı sağlar.</p>
+
+        <hr />
+
+        <SectionHeader icon={faUserCog}>Yönetici Paneli Özellikleri</SectionHeader>
+        <ul className="feature-list">
+            <FeatureItem icon={faTachometerAlt}><strong>Genel Bakış (Dashboard):</strong> Tarih aralığına göre filtrelenebilir ciro, satış ve ürün istatistikleri.</FeatureItem>
+            <FeatureItem icon={faBoxOpen}><strong>Ürün ve Kategori Yönetimi:</strong> Sürükle-bırak sıralama, sürüm yönetimi ve stok takibi.</FeatureItem>
+            <FeatureItem icon={faBlog}><strong>Blog ve İçerik Yönetimi:</strong> Markdown destekli editör ve yorum onay sistemi.</FeatureItem>
+            <FeatureItem icon={faUsers}><strong>Kullanıcı ve Rol Yönetimi:</strong> Esnek rol tabanlı yetkilendirme (RBAC).</FeatureItem>
+            <FeatureItem icon={faHeadset}><strong>Destek Sistemi:</strong> Gelişmiş destek talebi yönetimi ve anlık sohbet (Pusher ile).</FeatureItem>
+            <FeatureItem icon={faShoppingCart}><strong>Ticari İşlemler:</strong> Sipariş listeleme, detay görüntüleme ve PayTR iade işlemleri.</FeatureItem>
+            <FeatureItem icon={faBullhorn}><strong>Pazarlama Araçları:</strong> Kampanyalar, kuponlar, paketler ve anlık push bildirimleri.</FeatureItem>
+            <FeatureItem icon={faSearchDollar}><strong>SEO Suite:</strong> Rakip analizi, içerik boşluğu analizi ve site optimizasyon araçları.</FeatureItem>
+        </ul>
+
+        <hr />
+
+        <SectionHeader icon={faRobot}>Agentic AI Mimarisi: Proaktif Bir Asistan</SectionHeader>
+        <p>Mynerith'teki yapay zeka, basit bir "chatbot"un çok ötesindedir. Bu, projenin kalbine entegre edilmiş, <strong>LangGraph</strong> ile yönetilen, proaktif, çok adımlı görevleri yerine getirebilen ve sitenin canlı veritabanıyla doğrudan etkileşime geçebilen <strong>agentic bir mimaridir</strong>.</p>
+        
+        <h4>Mimari: Proje Yöneticisi ve Uzmanlar Ekibi</h4>
+        <p>Sistem, bir proje yöneticisi (Planner) ve kendi alanlarında uzmanlaşmış (Admin, Catalog, Account, Knowledge) bir agent ekibinden oluşur. LangGraph Planner, karmaşık istekleri adımlara bölerek doğru uzmanları sırayla göreve atar.</p>
+
+        <InfoBox title="Akıllı Yetenekler" icon={faMagic}>
+            <ul className="feature-list">
+                <FeatureItem icon={faChartLine}><strong>Etkileşimli Raporlama:</strong> *"Geçen haftaki ciro ne kadardı?"* gibi doğal dil sorgularıyla anında raporlar alın.</FeatureItem>
+                <FeatureItem icon={faBook}><strong>Genişletilebilir Bilgi Tabanı (RAG):</strong> PDF, DOCX, YML gibi dosyalar yükleyerek yapay zekanın bilgi dağarcığını genişletin ve ürün kurulumu gibi spesifik sorulara anında cevap almasını sağlayın.</FeatureItem>
+                <FeatureItem icon={faFileCode}><strong>Akıllı İçerik Üretimi:</strong> *"Yeni kullanıcılara özel %20'lik bir kupon oluştur."* veya *"BenthFarming eklentisi için bir blog yazısı taslağı hazırla."* gibi komutlarla kupon, blog ve ürün açıklamalarını saniyeler içinde otomatik olarak oluşturun.</FeatureItem>
+            </ul>
+        </InfoBox>
+
+        <hr />
+
+        <SectionHeader icon={faCogs}>Teknoloji Mimarisi</SectionHeader>
+        <p>Bu proje, modern ve ölçeklenebilir bir teknoloji yığını üzerine inşa edilmiştir:</p>
+        <ul className="feature-list">
+            <FeatureItem icon={faServer}><strong>Framework & Dil:</strong> Next.js 15+ (App Router), TypeScript</FeatureItem>
+            <FeatureItem icon={faDatabase}><strong>Veritabanı & ORM:</strong> PostgreSQL, Prisma, PGVector</FeatureItem>
+            <FeatureItem icon={faUsers}><strong>Authentication:</strong> NextAuth.js (Auth.js v5)</FeatureItem>
+            <FeatureItem icon={faSyncAlt}><strong>Arka Plan İşleri:</strong> BullMQ & Redis</FeatureItem>
+            <FeatureItem icon={faBrain}><strong>Yapay Zeka:</strong> LangChain.js (LangGraph), Google Gemini</FeatureItem>
+            <FeatureItem icon={faSatelliteDish}><strong>Gerçek Zamanlı:</strong> Pusher</FeatureItem>
+        </ul>
+        <p>Mimari, <strong>Server Actions</strong>, <strong>Asenkron İş Kuyrukları</strong> ve <strong>Agentic AI</strong> gibi modern desenleri benimseyerek yüksek performans ve ölçeklenebilirlik sağlar.</p>
+      </>
+  )
 };
 
 export const projectsData = [
+    {
+    slug: 'mynerith',
+    title: 'Mynerith',
+    subtitle: 'AI Destekli E-Ticaret & CMS Platformu',
+    image: '/assets/mynerith-16-9.png', // Not: Bu resmi public/assets klasörüne eklemelisin.
+    projectUrl: ['https://github.com/bentahsin/Mynerith'],
+    tags: ['AI Agent Mimarisi', 'E-Ticaret Platformu', 'Next.js App Router', 'BullMQ İş Kuyrukları', 'LangGraph'],
+    tagIcons: [<NodeJSIcon key="node" />, <PostgreSQLIcon key="postgres" />, <RedisIcon key="redis" />],
+    description: "Kişisel e-ticaret çözümü; dijital ürün satışı, blog (CMS) ve AI destekli müşteri desteği sunar. Next.js App Router, BullMQ ve LangChain.js agent mimarisi ile geliştirilmiştir.",
+    caseStudyTitle: <>Detaylı Bilgi: <MynerithBlockText/></>, // Not: Bu proje için özel bir block text görselin olmadığından metin kullandım.
+    seoTitle: 'Detaylı Bilgi: Mynerith E-Ticaret Platformu',
+    caseStudyContent: caseStudies.mynerith
+  },
   {
     slug: 'benthpatcher',
     title: 'BenthPatcher',

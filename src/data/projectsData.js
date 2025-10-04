@@ -79,6 +79,7 @@ import BenthPatcherBlockText from '@/components/Images/BenthPatcherBlockText';
 import LicenseLibBlockText from '@/components/Images/LicenseLibBlockText';
 import BenthLicenseAPIBlockText from '@/components/Images/BenthLicenseAPIBlockText';
 import MynerithBlockText from '@/components/Images/MynerithBlockText';
+import TypeScriptIcon from '@/components/icons/TypeScriptIcon';
 
 const beforePatchCode = `
 import org.bukkit.plugin.java.JavaPlugin;
@@ -534,12 +535,12 @@ export const projectsData = [
     slug: 'mynerith',
     title: 'Mynerith',
     subtitle: 'AI Destekli E-Ticaret & CMS Platformu',
-    image: '/assets/mynerith-16-9.png', // Not: Bu resmi public/assets klasörüne eklemelisin.
+    image: '/assets/mynerith-16-9.png',
     projectUrl: ['https://github.com/bentahsin/Mynerith'],
     tags: ['AI Agent Mimarisi', 'E-Ticaret Platformu', 'Next.js App Router', 'BullMQ İş Kuyrukları', 'LangGraph'],
-    tagIcons: [<NodeJSIcon key="node" />, <PostgreSQLIcon key="postgres" />, <RedisIcon key="redis" />],
+    tagIcons: [<NodeJSIcon key="node" />, <TypeScriptIcon key="typescript" />, <PostgreSQLIcon key="postgres" />, <RedisIcon key="redis" />],
     description: "Kişisel e-ticaret çözümü; dijital ürün satışı, blog (CMS) ve AI destekli müşteri desteği sunar. Next.js App Router, BullMQ ve LangChain.js agent mimarisi ile geliştirilmiştir.",
-    caseStudyTitle: <>Detaylı Bilgi: <MynerithBlockText/></>, // Not: Bu proje için özel bir block text görselin olmadığından metin kullandım.
+    caseStudyTitle: <>Detaylı Bilgi: <MynerithBlockText/></>,
     seoTitle: 'Detaylı Bilgi: Mynerith E-Ticaret Platformu',
     caseStudyContent: caseStudies.mynerith
   },

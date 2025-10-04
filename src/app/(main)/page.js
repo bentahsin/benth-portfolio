@@ -27,6 +27,7 @@ export default function Home() {
             <div className="background-grid"></div>
             <div id="glow-hero" className="glow"></div>
             <div id="glow-skills" className="glow"></div>
+            <div id="glow-music" className="glow"></div>
             <div id="glow-projects" className="glow"></div>
             <div id="glow-contact" className="glow"></div>
         </div>
@@ -76,7 +77,7 @@ export default function Home() {
                 </div>
             </section>
             <section id="music">
-                <h2 className="section-title">Spotify</h2>
+                <h2 className="spotify-section-title">Spotify</h2>
                 <div style={{ maxWidth: '800px', margin: '0 auto' }}>
                     <SpotifyActivity />
                 </div>

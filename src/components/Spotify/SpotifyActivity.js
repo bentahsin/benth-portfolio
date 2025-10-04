@@ -66,8 +66,8 @@ export default function SpotifyActivity() {
   }
 
   return (
-    <div className="spotify-activity-card" style={{backgroundColor: 'var(--card-bg)', padding: '2rem', borderRadius: '15px', border: '1px solid rgba(140, 8, 217, 0.2)'}}>
-      <h3 style={{marginBottom: '1.5rem', color: 'var(--accent-color)', display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
+    <div className="spotify-activity-card" style={{backgroundColor: 'var(--card-bg)', padding: '2rem', borderRadius: '15px', border: '1px solid #1db9543d'}}>
+      <h3 style={{marginBottom: '1.5rem', color: 'var(--spotify-color)', display: 'flex', alignItems: 'center', gap: '0.75rem'}}>
         <FontAwesomeIcon icon={faSpotify} size="lg" />
         Şu An Dinliyorum
       </h3>
@@ -83,7 +83,7 @@ export default function SpotifyActivity() {
         <p style={{ color: 'var(--text-secondary)' }}>Sessizlik... Şu an bir şey çalmıyor.</p>
       )}
 
-      <h3 style={{marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--accent-color)'}}>Bu Ayın Favorileri</h3>
+      <h3 style={{marginTop: '3rem', marginBottom: '1.5rem', color: 'var(--spotify-color)'}}>Bu Ayın Favorileri</h3>
       <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
         {topTracks.length > 0 ? topTracks.map((track, index) => (
           <li key={track.songUrl + index}>

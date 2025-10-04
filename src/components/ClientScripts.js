@@ -114,6 +114,7 @@ export default function ClientScripts() {
           'hero': document.getElementById('glow-hero'),
           'about': document.getElementById('glow-hero'),
           'skills': document.getElementById('glow-skills'),
+          'music': document.getElementById('glow-music'),
           'projects': document.getElementById('glow-projects'),
           'contact': document.getElementById('glow-contact'),
         };

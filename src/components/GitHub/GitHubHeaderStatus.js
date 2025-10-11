@@ -39,7 +39,6 @@ export default function GitHubHeaderStatus() {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // API isteği bir gecikmeyle gelsin ki skeleton'ı görelim (sadece test için)
          setTimeout(() => {
             fetch('/api/github')
                 .then(res => res.ok ? res.json() : Promise.reject('API error'))
@@ -48,12 +47,12 @@ export default function GitHubHeaderStatus() {
                 })
                 .catch(err => {
                     console.error("GitHub status error:", err);
-                    setStatus(null); // Hata durumunda durumu temizle
+                    setStatus(null);
                 })
                 .finally(() => {
-                    setIsLoading(false); // Her durumda yüklenmeyi bitir
+                    setIsLoading(false);
                 });
-         }, 1000); // Test için gecikme
+         }, 1000);
     }, []);
 
     if (isLoading) {
@@ -61,7 +60,7 @@ export default function GitHubHeaderStatus() {
     }
 
     if (!status) {
-        return null; // Eğer aktivite çok eskiyse veya hata varsa hiçbir şey gösterme
+        return null;
     }
 
     return (

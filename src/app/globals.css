@@ -70,7 +70,8 @@ section {
     transform: translate(-50%, -50%);
     border-radius: 50%;
     z-index: 9999;
-    opacity: 0; 
+    opacity: 0;
+    will-change: transform;
 }
 
 .cursor-dot {
@@ -110,19 +111,31 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    
+}
+
+.background-grid::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
     background-image:
         linear-gradient(rgba(133, 8, 217, 0.1) 1px, transparent 1px),
         linear-gradient(to right, rgba(182, 8, 217, 0.1) 1px, transparent 1px);
     background-size: 60px 60px;
     opacity: 0.3;
-    
-    animation: pan-grid 60s linear infinite;
+    animation: pan-grid-performant 60s linear infinite;
+    will-change: transform;
 }
 
-@keyframes pan-grid {
-    0% { background-position: 0 0; }
-    100% { background-position: 1200px 600px; }
+@keyframes pan-grid-performant {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(-50%, -50%);
+    }
 }
 
 .glow {
@@ -131,6 +144,7 @@ section {
     opacity: 0;
     filter: blur(150px); 
     transition: opacity 1.5s ease;
+    will-change: opacity, filter;
 }
 
 .glow.visible {
@@ -1383,3 +1397,4 @@ footer {
     font-style: italic;
     white-space: nowrap;
 }
+

@@ -1,13 +1,6 @@
 import { NextResponse } from 'next/server';
 import { projectsData } from '@/data/projectsData';
 
-let repoCache = {
-    data: null,
-    timestamp: 0,
-};
-
-const CACHE_DURATION = 3600 * 1000;
-
 async function fetchRepoLastUpdate(repoName, token) {
     try {
         const res = await fetch(`https://api.github.com/repos/${repoName}`, {
@@ -24,9 +17,9 @@ async function fetchRepoLastUpdate(repoName, token) {
         console.error(`Error fetching repo ${repoName}:`, error);
         return null;
     }
-    }
+}
 
-    export async function GET() {
+export async function GET() {
     const GITHUB_USERNAME = process.env.GITHUB_USERNAME;
     const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 
@@ -34,23 +27,19 @@ async function fetchRepoLastUpdate(repoName, token) {
         return NextResponse.json({ error: 'GitHub credentials not configured.' }, { status: 500 });
     }
 
-    const now = Date.now();
-    
-    if (repoCache.data && (now - repoCache.timestamp < CACHE_DURATION)) {
-        return NextResponse.json(repoCache.data);
-    }
-
     try {
-        const eventsRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public`, {
+        const eventsRes = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/events/public?per_page=50`, {
         headers: {
             Authorization: `Bearer ${GITHUB_TOKEN}`,
             'X-GitHub-Api-Version': '2022-11-28',
         },
-        next: { revalidate: 3600 }
+        cache: 'no-store',
         });
-        if (!eventsRes.ok) throw new Error('Could not fetch GitHub events');
-        const events = await eventsRes.json();
 
+        if (!eventsRes.ok) {
+            throw new Error(`Could not fetch GitHub events: ${eventsRes.statusText}`);
+        }
+        const events = await eventsRes.json();
         const lastPushEvent = events.find(event => event.type === 'PushEvent');
         const lastActivityDate = lastPushEvent ? lastPushEvent.created_at : null;
 
@@ -67,7 +56,6 @@ async function fetchRepoLastUpdate(repoName, token) {
         });
 
         const repoUpdatesArray = (await Promise.all(repoUpdatePromises)).filter(Boolean);
-
         const repoUpdates = repoUpdatesArray.reduce((acc, { slug, lastUpdate }) => {
         acc[slug] = lastUpdate;
         return acc;
@@ -78,14 +66,13 @@ async function fetchRepoLastUpdate(repoName, token) {
         repoUpdates,
         };
 
-        repoCache = {
-        data: responseData,
-        timestamp: now,
-        };
-
         return NextResponse.json(responseData);
 
     } catch (error) {
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        console.error("GitHub API Hatası:", error.message);
+        return NextResponse.json(
+            { lastActivityDate: null, repoUpdates: {} }, 
+            { status: 500 }
+        );
     }
 }

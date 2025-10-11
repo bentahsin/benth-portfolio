@@ -4,6 +4,7 @@
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { throttle } from 'lodash';
 
 export default function ClientScripts() {
   const pathname = usePathname();
@@ -37,10 +38,10 @@ export default function ClientScripts() {
           animationFrameId = requestAnimationFrame(animateCursor);
         };
 
-        const handleMouseMove = (e) => {
-          mouse.x = e.clientX;
-          mouse.y = e.clientY;
-        };
+        const handleMouseMove = throttle((e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        }, 16);
 
         window.addEventListener('mousemove', handleMouseMove);
         animateCursor();
@@ -70,10 +71,10 @@ export default function ClientScripts() {
         }
       };
 
-      const handleScroll = () => {
-        const nav = document.querySelector('.navbar');
-        if (nav) window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
-      };
+      const handleScroll = throttle(() => {
+          const nav = document.querySelector('.navbar');
+          if (nav) window.scrollY > 50 ? nav.classList.add('scrolled') : nav.classList.remove('scrolled');
+      }, 100);
       addListener(window, 'scroll', handleScroll);
 
       if(isDesktop) {
@@ -86,7 +87,7 @@ export default function ClientScripts() {
       }
 
       sr = ScrollReveal({
-        origin: 'bottom', distance: '60px', duration: 1500, delay: 200, easing: 'ease-out', reset: false
+        origin: 'bottom', distance: '60px', duration: 1500, delay: 200, easing: 'ease-out', reset: false, mobile: true, force: true
       });
       sr.reveal('.section-title, .case-title, .case-section-header');
       sr.reveal('.about-content, .projects-container, .contact-content, .case-study article', { delay: 400 });

@@ -1,10 +1,14 @@
-import Link from 'next/link'; 
+import Link from 'next/link';
+import GitHubHeaderStatus from './GitHub/GitHubHeaderStatus';
 
 export default function Header() {
   return (
     <header className="navbar">
       <nav>
-        <Link href="/" className="logo">bentahsin</Link>
+        <div className="logo-container">
+          <Link href="/" className="logo">bentahsin</Link>
+          <GitHubHeaderStatus />
+        </div>
         <ul>
           <li><a href="/#about">Hakkımda</a></li>
           <li><a href="/#skills">Yeteneklerim</a></li>

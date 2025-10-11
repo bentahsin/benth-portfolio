@@ -527,7 +527,82 @@ const caseStudies = {
         </ul>
         <p>Mimari, <strong>Server Actions</strong>, <strong>Asenkron İş Kuyrukları</strong> ve <strong>Agentic AI</strong> gibi modern desenleri benimseyerek yüksek performans ve ölçeklenebilirlik sağlar.</p>
       </>
-  )
+  ),
+  benthpapimanager: (
+      <>
+        <SectionHeader icon={faMagic}>Placeholder Oluşturmayı Sihre Dönüştürün</SectionHeader>
+        <p><strong>BenthPapiManager</strong>, PlaceholderAPI için yeni placeholder'lar oluşturma sürecini kökten değiştirir. Karmaşık `PlaceholderExpansion` sınıfları yazmak, metotları manuel olarak yönlendirmek ve bağımlılıkları yönetmek yerine, BenthPapiManager size temiz, okunabilir ve "sadece çalışan" bir yapı sunar.</p>
+
+        <hr />
+
+        <SectionHeader icon={faStar}>Öne Çıkan Özellikler</SectionHeader>
+        <ul className="feature-list">
+          <FeatureItem icon={faCode}><strong>Annotation Tabanlı:</strong> Karmaşık `PlaceholderExpansion` sınıfları yerine, `@Placeholder` ve `@PlaceholderIdentifier` gibi basit anotasyonlarla placeholder'larınızı tanımlayın.</FeatureItem>
+          <FeatureItem icon={faLink}><strong>Sıfır Bağımlılık:</strong> `Reflections` gibi harici kütüphanelere ihtiyaç duymaz. Sadece PAPI ve Spigot API'si yeterlidir. Bu, çakışma riskini ortadan kaldırır.</FeatureItem>
+          <FeatureItem icon={faPuzzlePiece}><strong>Gelişmiş Dependency Injection:</strong> Sadece ana plugin sınıfınızı değil, `DatabaseManager` veya `UserManager` gibi herhangi bir yönetici sınıfınızı `@Inject` ile placeholder sınıflarınıza zahmetsizce enjekte edin.</FeatureItem>
+          <FeatureItem icon={faBolt}><strong>Asenkron Placeholder'lar:</strong> Veritabanı sorguları gibi yavaş işlemler için metotlarınızı `async = true` olarak işaretleyin ve sunucunuzu lag'dan koruyun.</FeatureItem>
+          <FeatureItem icon={faCogs}><strong>Otomatik Yaşam Döngüsü:</strong> Kütüphane, kaydedilen tüm placeholder'ları `onDisable`'da `unregisterAll()` ile otomatik olarak temizlemenizi sağlayarak "reload" güvenliği sunar.</FeatureItem>
+        </ul>
+
+        <hr />
+
+        <SectionHeader icon={faRocket}>Kurulum ve Kullanım</SectionHeader>
+        <p>Projeyi eklentinize entegre etmek oldukça basittir.</p>
+        
+        <h4>1. Maven Bağımlılığını Ekleme</h4>
+        <pre><code>{`<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.bentahsin</groupId>
+        <artifactId>BenthPAPIManager</artifactId>
+        <version>1.0.3-b1</version>
+        <scope>compile</scope>
+    </dependency>
+</dependencies>`}</code></pre>
+
+        <InfoBox title="Shading (Gölgeleme) Çok Önemli!" icon={faShieldAlt}>
+          <p>Kütüphaneyi kendi eklentinizin JAR dosyasına dahil etmek ve diğer eklentilerle çakışmasını önlemek için `maven-shade-plugin`'i kullanmalısınız. Bu, kütüphanenin paket yolunu (`com.bentahsin...`) kendi eklentinizin paket yolunun altına taşır.</p>
+        </InfoBox>
+
+        <h4>2. Kütüphaneyi Başlatma</h4>
+        <p>Plugin'inizin `onEnable()` metodunda, BenthPapiManager'ın akıcı builder'ını kullanarak her şeyi yapılandırın.</p>
+        <pre><code>{`this.papiManager = BenthPAPIManager.create(this)
+        .withInjectable(DatabaseManager.class, this.databaseManager)
+        .withDefaultErrorText("§c-")
+        .withDebugMode()
+        .register(
+            OyuncuPlaceholders.class,
+            IliskiselPlaceholders.class
+        );`}</code></pre>
+        
+        <h4>3. Placeholder Sınıfı Oluşturma</h4>
+        <p>Artık tek yapmanız gereken, anotasyonları kullanarak placeholder'larınızı tanımlamak.</p>
+        <pre><code>{`@Placeholder(identifier = "myplugin", author = "YourName", version = "1.0")
+public class OyuncuPlaceholders {
+
+    @Inject
+    private DatabaseManager db; // Nesne buraya otomatik enjekte edilir
+
+    // %myplugin_ping%
+    @PlaceholderIdentifier(identifier = "ping")
+    public int onPlayerPing(Player player) {
+        return player.getPing();
+    }
+
+    // %myplugin_hasperm_essentials.fly%
+    @PlaceholderIdentifier(identifier = "hasperm", onError = "§cHayır")
+    public String onHasPerm(Player player, String permission) {
+        return player.hasPermission(permission) ? "§aEvet" : "§cHayır";
+    }
+}`}</code></pre>
+      </>
+    )
 };
 
 export const projectsData = [
@@ -543,6 +618,19 @@ export const projectsData = [
     caseStudyTitle: <>Detaylı Bilgi: <MynerithBlockText/></>,
     seoTitle: 'Detaylı Bilgi: Mynerith E-Ticaret Platformu',
     caseStudyContent: caseStudies.mynerith
+  },
+    {
+    slug: 'benthpapimanager',
+    title: 'BenthPapiManager',
+    subtitle: 'Annotation Tabanlı PlaceholderAPI Kütüphanesi',
+    image: '/assets/benthpapimanager-16-9.png',
+    projectUrl: ['https://github.com/bentahsin/BenthPAPIManager'],
+    tags: ['Annotation Driven', 'Dependency Injection', 'Asynchronous Placeholders', 'Fluent Builder API', 'Zero Dependency'],
+    tagIcons: [<JavaIcon key="java" />],
+    description: "PlaceholderAPI için modern, annotation tabanlı bir yönetim kütüphanesi. Karmaşık `PlaceholderExpansion` sınıfları yerine, dependency injection ve asenkron desteği ile temiz ve okunabilir bir yapı sunar.",
+    caseStudyTitle: <>BenthPapiManager</>,
+    seoTitle: 'Detaylı Bilgi: BenthPapiManager Kütüphanesi',
+    caseStudyContent: caseStudies.benthpapimanager
   },
   {
     slug: 'benthpatcher',
@@ -598,6 +686,7 @@ export const projectsData = [
     title: 'BenthFarming',
     subtitle: 'Minecraft için Dinamik Tarım Sistemi',
     image: '/assets/BenthFarming_16-9.png',
+    projectUrl: ['https://github.com/bentahsin/BenthFarming'],
     tags: [],
     tagIcons: [<JavaIcon key="java" />, <SQLiteIcon key="sqlite" />, <MySQLIcon key="mysql" />],
     description: "Minecraft sunucunuzdaki tarım mekaniklerini, özel çapalar, entegre dükkan ve etkinlik modları ile ödüllendirici bir maceraya dönüştürün. Geliştiriciler için tam API desteği sunar.",

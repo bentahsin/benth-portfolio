@@ -1,0 +1,57 @@
+/* File: components/Spotify/SpotifyFooter.module.css */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: rgba(29, 185, 84, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    border: 1px solid rgba(29, 185, 84, 0.2);
+    max-width: 350px;
+    overflow: hidden;
+}
+
+.spotifyIcon {
+    color: #1DB954;
+    font-size: 1.2rem;
+}
+
+.songLink {
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.songInfo {
+    display: flex;
+    align-items: center;
+    font-size: 0.85rem;
+    overflow: hidden;
+}
+
+.title {
+    color: var(--text-primary);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.artist {
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.separator {
+    color: var(--text-secondary);
+    margin: 0 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 100%;
+    }
+}

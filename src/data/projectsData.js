@@ -80,6 +80,7 @@ import LicenseLibBlockText from '@/components/Images/LicenseLibBlockText';
 import BenthLicenseAPIBlockText from '@/components/Images/BenthLicenseAPIBlockText';
 import MynerithBlockText from '@/components/Images/MynerithBlockText';
 import TypeScriptIcon from '@/components/icons/TypeScriptIcon';
+import BenthPapiMgrBlockText from '@/components/Images/BenthPapiMgrBlockText';
 
 const beforePatchCode = `
 import org.bukkit.plugin.java.JavaPlugin;
@@ -628,7 +629,7 @@ export const projectsData = [
     tags: ['Annotation Driven', 'Dependency Injection', 'Asynchronous Placeholders', 'Fluent Builder API', 'Zero Dependency'],
     tagIcons: [<JavaIcon key="java" />],
     description: "PlaceholderAPI için modern, annotation tabanlı bir yönetim kütüphanesi. Karmaşık `PlaceholderExpansion` sınıfları yerine, dependency injection ve asenkron desteği ile temiz ve okunabilir bir yapı sunar.",
-    caseStudyTitle: <>BenthPapiManager</>,
+    caseStudyTitle: <>Detaylı Bilgi: <BenthPapiMgrBlockText /></>,
     seoTitle: 'Detaylı Bilgi: BenthPapiManager Kütüphanesi',
     caseStudyContent: caseStudies.benthpapimanager
   },

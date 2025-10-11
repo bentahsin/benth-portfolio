@@ -1,0 +1,53 @@
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 50px;
+    background-color: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.4);
+    color: #1DB954;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    user-select: none;
+    max-width: 150px;
+}
+
+.badge:hover {
+    background-color: rgba(29, 185, 84, 0.2);
+    border-color: #1DB954;
+    transform: translateY(-1px);
+}
+
+.spotifyIcon {
+    font-size: 1rem;
+    color: #1DB954;
+}
+
+.songText {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Skeleton Stilleri */
+.skeleton {
+    background-color: var(--card-bg);
+    border-color: var(--card-bg);
+    cursor: wait;
+}
+.skeleton .skeletonIcon {
+    width: 14px;
+    height: 14px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+.skeleton .skeletonText {
+    width: 80px;
+    height: 12px;
+    background-color: var(--text-secondary);
+    border-radius: 4px;
+    opacity: 0.3;
+}

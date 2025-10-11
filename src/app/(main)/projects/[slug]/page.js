@@ -4,6 +4,9 @@ import Link from 'next/link';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import JsonLd from '@/components/JsonLd';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 
 config.autoAddCss = false;
 
@@ -100,6 +103,9 @@ export default function ProjectCaseStudyPage({ params }) {
     "mainEntity": softwareAppSchema
   };
 
+  const githubLink = project.projectUrl?.find(url => url.includes('github.com'));
+  const otherLinks = project.projectUrl?.filter(url => !url.includes('github.com')) || [];
+
   return (
     <>
       <JsonLd data={articleSchema} />
@@ -128,6 +134,26 @@ export default function ProjectCaseStudyPage({ params }) {
             <div className="markdown-content">
               {project.caseStudyContent}
             </div>
+            {(project.projectUrl?.length > 0) && (
+              <div className="related-links-section">
+                <hr />
+                <h3>İlgili Linkler</h3>
+                <div className="links-container">
+                  {project.isPublicRepo && githubLink && (
+                    <a href={githubLink} target="_blank" rel="noopener noreferrer" className="related-link">
+                      <FontAwesomeIcon icon={faGithub} />
+                      <span>GitHub Reposu</span>
+                    </a>
+                  )}
+                  {otherLinks.map(link => (
+                    <a href={link} key={link} target="_blank" rel="noopener noreferrer" className="related-link">
+                      <FontAwesomeIcon icon={faExternalLinkAlt} />
+                      <span>{new URL(link).hostname}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
             </article>
         </div>
       </section>

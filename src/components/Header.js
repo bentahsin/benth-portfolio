@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import GitHubHeaderStatus from './GitHub/GitHubHeaderStatus';
+import SpotifyHeaderStatus from './Spotify/SpotifyHeaderStatus';
 
 export default function Header() {
   return (
@@ -8,6 +9,7 @@ export default function Header() {
         <div className="logo-container">
           <Link href="/" className="logo">bentahsin</Link>
           <GitHubHeaderStatus />
+          <SpotifyHeaderStatus />
         </div>
         <ul>
           <li><a href="/#about">Hakkımda</a></li>

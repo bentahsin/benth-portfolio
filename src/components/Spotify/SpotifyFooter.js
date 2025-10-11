@@ -26,8 +26,11 @@ export default function SpotifyFooter() {
     return () => clearInterval(interval);
   }, []);
 
+  const tooltipText = song?.isPlaying ? `${song.title} – ${song.artist}` : "Spotify'da şu an bir şey çalmıyor";
+  const ariaLabelText = song?.isPlaying ? `Şu an dinleniyor: ${tooltipText}` : "Spotify'da şu an bir şey çalmıyor";
+
   return (
-    <div className={styles.container}>
+    <div className={styles.container} title={tooltipText} aria-label={ariaLabelText}>
       <FontAwesomeIcon icon={faSpotify} className={styles.spotifyIcon} />
       {song?.isPlaying ? (
         <a href={song.songUrl} target="_blank" rel="noopener noreferrer" className={styles.songLink}>

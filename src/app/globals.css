@@ -1396,5 +1396,52 @@ footer {
     color: var(--text-secondary);
     font-style: italic;
     white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.project-update-status:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
 }
 
+.project-update-status.no-link {
+    cursor: default;
+}
+
+.project-update-status.no-link:hover {
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+.related-links-section {
+    margin-top: 4rem;
+}
+.related-links-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.related-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.related-link:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+.related-link svg {
+    font-size: 1.2rem;
+}

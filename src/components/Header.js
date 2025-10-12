@@ -1,4 +1,3 @@
-// File: components/Header.js
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
@@ -21,13 +20,11 @@ export default function Header() {
         setIsClient(true);
     }, []);
 
-    // Sayfa değiştiğinde tüm menüleri kapat
     useEffect(() => {
         setIsMobileMenuOpen(false);
         setIsDesktopMenuOpen(false);
     }, [pathname]);
 
-    // Dışarı tıklandığında masaüstü dropdown'ı kapat
     useEffect(() => {
         function handleClickOutside(event) {
             if (desktopMenuRef.current && !desktopMenuRef.current.contains(event.target)) {
@@ -80,7 +77,6 @@ export default function Header() {
                 
                 <div className="nav-actions">
 
-                    {/* --- Masaüstü Navigasyonu --- */}
                     <ul className="desktop-nav">
                         <li><a href="/#about">Hakkımda</a></li>
                         <li><a href="/#skills">Yeteneklerim</a></li>

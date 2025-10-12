@@ -7,6 +7,7 @@ import JsonLd from '@/components/JsonLd';
 import { siteConfig } from '@/data/siteConfig';
 import ProjectCardUpdateStatus from '@/components/GitHub/ProjectCardUpdateStatus';
 import { GitHubDataProvider } from '@/components/GitHub/GitHubDataProvider';
+import PgpButton from '@/components/PgpButton';
 
 export default function Home() {
     const availabilityMap = {
@@ -38,6 +39,29 @@ export default function Home() {
             "name": "bentahsin"
         }
     };
+
+    const myPgpKey = `-----BEGIN PGP PUBLIC KEY BLOCK-----
+Comment: Kullanıcı Kimliği:	Tahsin <tahsin@bentahsin.com>
+Comment: Geçerlilik başlangıcı:	12.10.2025 04:00
+Comment: Geçerlilik sonu:	12.10.2028 12:00
+Comment: Tür:	255 bit EdDSA (gizli anahtar kullanılabilir)
+Comment: Kullanım:	İmzalama, Şifreleme, Kullanıcı Kimliklerini Sertikalandırma
+Comment: Parmak İzi:	34F561533F2A9093EF041FF93D0803DC803953FD
+
+
+mDMEaOr9vBYJKwYBBAHaRw8BAQdALkxlYgPN/q+Aj5DRfUd/4e0a+lp0MKi1gQ9n
+empKHUu0HVRhaHNpbiA8dGFoc2luQGJlbnRhaHNpbi5jb20+iJkEExYKAEEWIQQ0
+9WFTPyqQk+8EH/k9CAPcgDlT/QUCaOr9vAIbAwUJBaVcVAULCQgHAgIiAgYVCgkI
+CwIEFgIDAQIeBwIXgAAKCRA9CAPcgDlT/UUqAQDwxGXSRaYnyC4VZQ2sX8kIDM0p
+k+qDohq3esDMXrl0FAEAmlt51SH6neTrBcWpVAARtS03pZoKq1tMHznivtTxigi4
+OARo6v28EgorBgEEAZdVAQUBAQdAn3Wi0LJ0JSYhtr7WqBbZ/NSW865HaMNUe0Pm
+b65eLXwDAQgHiH4EGBYKACYWIQQ09WFTPyqQk+8EH/k9CAPcgDlT/QUCaOr9vAIb
+DAUJBaVcVAAKCRA9CAPcgDlT/faKAQCDQyeXsTwwNWwcZB5lKKNYUDMRnNUjR4+n
+M59YCyTN4wD/elc0brbTghu94qyBUvPkMKJpa7AGMu/0us1vRAY78Ac=
+=DAvP
+-----END PGP PUBLIC KEY BLOCK-----
+`;
+
     return (
         <>
         <GitHubDataProvider>
@@ -299,7 +323,10 @@ export default function Home() {
                             <br/><br/>
                             Gelin bir kahve eşliğinde buluşalım ve teknolojiyi kullanarak neler başarabileceğimizi birlikte keşfedelim.
                         </p>
-                        <a href="mailto:tahsin@bentahsin.com" className="cta-button">E-Posta Gönder</a>
+                        <div className="contact-buttons">
+                            <a href="mailto:tahsin@bentahsin.com" className="cta-button">E-Posta Gönder</a>
+                            <PgpButton pgpKey={myPgpKey} />
+                        </div>
                         <div className="social-links">
                             <a href="https://github.com/bentahsin" target="_blank" aria-label="GitHub Profilim">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"

@@ -51,7 +51,7 @@ export async function GET() {
       artist: track.artists.map((_artist) => _artist.name).join(', '),
       songUrl: track.external_urls.spotify,
       title: track.name,
-      albumImageUrl: track.album.images[0]?.url, // Bazı nadir durumlarda resim olmayabilir
+      albumImageUrl: track.album.images[0]?.url,
     }));
     
     const headers = {

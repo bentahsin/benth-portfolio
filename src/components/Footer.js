@@ -19,7 +19,15 @@ export default function Footer() {
             <li><a href="/#contact">İletişim</a></li>
           </ul>
         </div>
-        
+
+        <div className="footer-col links-col">
+            <h4>Diğer Sayfalar</h4>
+            <ul>
+                <li><Link href="/now">Şimdi</Link></li>
+                <li><Link href="/changelog">Güncellemeler</Link></li>
+                <li><Link href="/contributions">Katkılar</Link></li>
+            </ul>
+        </div>
         <div className="footer-col social-col">
           <h4>Sosyal Medya</h4>
           <div className="footer-social-links">

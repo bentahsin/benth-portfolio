@@ -1,6 +1,8 @@
+import React from 'react';
 import { projectsData } from '@/data/projectsData';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
+import Image from 'next/image';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 import JsonLd from '@/components/JsonLd';
@@ -16,15 +18,17 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }) {
-  const project = projectsData.find((p) => p.slug === params.slug);
+export async function generateMetadata({ params: paramsPromise }) {
+  const { slug } = await paramsPromise;
+  const project = projectsData.find((p) => p.slug === slug);
+  
   if (!project) {
     return {
       title: 'Proje Bulunamadı',
     };
   }
 
-  const siteUrl = 'https://bentahsin.com';
+  const siteUrl = 'https://www.bentahsin.com';
   const projectUrl = `${siteUrl}/projects/${project.slug}`;
   const imageUrl = `${siteUrl}${project.image}`;
   const pageTitle = `${project.title} - ${project.subtitle}`;
@@ -32,74 +36,56 @@ export async function generateMetadata({ params }) {
   return {
     title: pageTitle,
     description: project.description,
-    
     openGraph: {
       title: pageTitle,
       description: project.description,
       url: projectUrl,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 675,
-          alt: `${project.title} Proje Görseli`,
-        },
-      ],
+      images: [{ url: imageUrl, width: 1200, height: 675, alt: `${project.title} Proje Görseli` }],
       type: 'article',
     },
-    
     twitter: {
       card: 'summary_large_image',
       title: pageTitle,
       description: project.description,
       images: [imageUrl],
     },
-
     alternates: {
       canonical: projectUrl,
     },
   };
 }
 
-export default function ProjectCaseStudyPage({ params }) {
-  const { slug } = params;
+export default function ProjectCaseStudyPage({ params: paramsPromise }) {
+  const { slug } = React.use(paramsPromise);
   const project = projectsData.find((p) => p.slug === slug);
 
   if (!project) {
     notFound();
   }
 
-  const siteUrl = 'https://bentahsin.com';
+  const siteUrl = 'https://www.bentahsin.com';
   const pageUrl = `${siteUrl}/projects/${slug}`;
 
-    const softwareAppSchema = {
+  const softwareAppSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": project.title,
+    "name": `${project.title} - ${project.subtitle}`,
     "url": pageUrl,
     "sameAs": project.projectUrl || [],
     "image": `${siteUrl}${project.image}`,
     "description": project.description,
     "applicationCategory": "Game",
     "operatingSystem": "Java Virtual Machine",
-    "author": {
-      "@type": "Person",
-      "name": "Tahsin",
-      "url": siteUrl
-    }
+    "author": { "@type": "Person", "name": "Tahsin", "url": siteUrl }
   };
 
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    "headline": project.caseStudyTitle,
+    "headline": project.seoTitle || project.title,
     "description": project.description,
-    "image": `https://bentahsin.com${project.image}`,
-    "author": {
-      "@type": "Person",
-      "name": "Tahsin",
-      "url": "https://bentahsin.com"
-    },
+    "image": `${siteUrl}${project.image}`,
+    "author": { "@type": "Person", "name": "Tahsin", "url": siteUrl },
     "mainEntity": softwareAppSchema
   };
 
@@ -120,6 +106,18 @@ export default function ProjectCaseStudyPage({ params }) {
                 <i className="fa-solid fa-arrow-left"></i> Projelere Geri Dön
             </Link>
             <article>
+            <div className="case-study-hero-image">
+              <Image
+                  src={project.image}
+                  alt={`${project.title} Proje Görseli`}
+                  width={1200}
+                  height={675}
+                  priority
+                  style={{
+                      viewTransitionName: `project-image-${project.slug}`
+                  }}
+              />
+            </div>
             <h1 className="case-title">
               <span className="sr-only">
                 {project.seoTitle || project.title}

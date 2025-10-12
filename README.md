@@ -7,7 +7,7 @@
 
 Merhaba! Bu repo, yeteneklerimi, projelerimi ve yazılım felsefemi sergilemek üzere tasarladığım kişisel portföy web sitemin kaynak kodlarını barındırmaktadır. Bu platformu, dijital bir kartvizitten daha fazlası olarak görüyor; teknik yetkinliğimi ve problem çözme yaklaşımımı somut bir şekilde göstermeyi amaçlıyorum.
 
-### ✨ [Sitemi Ziyaret Etmek İçin Tıklayın](https://www.bentahsin.com) ✨ - *Offline*
+### ✨ [Sitemi Ziyaret Etmek İçin Tıklayın](https://www.bentahsin.com) ✨
 
 ---
 

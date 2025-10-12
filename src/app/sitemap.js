@@ -1,6 +1,6 @@
 import { projectsData } from '../data/projectsData';
 
-const URL = 'https://www.bentahsin.com';
+const URL = 'https://bentahsin.com';
 
 export default async function sitemap() {
   const projects = projectsData.map(({ slug }) => ({

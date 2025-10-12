@@ -3,7 +3,7 @@ import Footer from '@/components/Footer';
 import ParticleBackground from '@/components/ParticleBackground';
 import ScrollToTopButton from '@/components/ScrollToTopButton';
 
-const siteUrl = 'https://www.bentahsin.com';
+const siteUrl = 'https://bentahsin.com';
 
 export const metadata = {
   title: {

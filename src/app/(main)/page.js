@@ -29,7 +29,7 @@ export default function Home() {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Tahsin",
-        "url": "https://www.bentahsin.com",
+        "url": "https://bentahsin.com",
         "sameAs": [
             "https://github.com/bentahsin"
         ],

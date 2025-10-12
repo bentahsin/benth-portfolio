@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: 'Geliştirme Günlüğü | bentahsin Portfolyosu',
     description: 'Tüm public GitHub projelerimdeki en son güncellemelerin, yeni özelliklerin ve sürüm notlarının bir zaman tüneli.',
-    url: 'https://www.bentahsin.com/changelog',
+    url: 'https://bentahsin.com/changelog',
   },
   twitter: {
     title: 'Geliştirme Günlüğü | bentahsin Portfolyosu',

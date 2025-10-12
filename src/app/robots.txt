@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.bentahsin.com/sitemap.xml
+Sitemap: https://bentahsin.com/sitemap.xml

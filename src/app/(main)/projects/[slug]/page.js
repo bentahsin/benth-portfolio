@@ -28,7 +28,7 @@ export async function generateMetadata({ params: paramsPromise }) {
     };
   }
 
-  const siteUrl = 'https://www.bentahsin.com';
+  const siteUrl = 'https://bentahsin.com';
   const projectUrl = `${siteUrl}/projects/${project.slug}`;
   const imageUrl = `${siteUrl}${project.image}`;
   const pageTitle = `${project.title} - ${project.subtitle}`;
@@ -63,7 +63,7 @@ export default function ProjectCaseStudyPage({ params: paramsPromise }) {
     notFound();
   }
 
-  const siteUrl = 'https://www.bentahsin.com';
+  const siteUrl = 'https://bentahsin.com';
   const pageUrl = `${siteUrl}/projects/${slug}`;
 
   const softwareAppSchema = {

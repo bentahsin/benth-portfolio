@@ -11,12 +11,12 @@ const nowData = [
     {
         icon: faBriefcase,
         title: "Profesyonel Odak",
-        content: "Şu sıralar Mynerith projesinin AI agent mimarisini LangGraph ile daha da modüler hale getirmeye ve performansını optimize etmeye odaklanmış durumdayım. Özellikle, agent'ların daha karmaşık görevleri daha az adımda çözebilmesi için 'tool-use' yeteneklerini geliştiriyorum."
+        content: "..."
     },
     {
         icon: faLightbulb,
         title: "Yeni Teknolojiler & Öğrenme",
-        content: "Boş zamanlarımda Rust dilinin temellerine ve 'ownership' modeline derinlemesine dalıyorum. Bellek yönetimi konusundaki bu farklı yaklaşım, C++ geçmişimden gelen bilgilere yeni bir perspektif katıyor."
+        content: "..."
     },
     {
         icon: faBookOpen,
@@ -26,7 +26,7 @@ const nowData = [
     {
         icon: faHeart,
         title: "Hayat",
-        content: "Yazılım dışında, havalar güzelleşmişken bisikletle yeni rotalar keşfetmeye ve farklı kahve çekirdekleriyle V60 demleme teknikleri denemeye çalışıyorum."
+        content: "..."
     }
 ];
 

@@ -26,7 +26,7 @@ const nowData = [
     {
         icon: faHeart,
         title: "Hayat",
-        content: "..."
+        content: "Deniyoruz bir şeyler..."
     }
 ];
 

@@ -17,6 +17,7 @@
 @import '@/styles/sections/expertise.css';
 @import '@/styles/sections/contact.css';
 @import '@/styles/sections/projects.css';
+@import '@/styles/sections/blog-preview.css';
 
 @import '@/styles/pages/now.css';
 @import '@/styles/pages/case-study.css';

@@ -56,7 +56,7 @@ export async function generateMetadata({ params: paramsPromise }: PostPageProps)
         return { title: 'Yazı Bulunamadı' };
     }
     
-    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.bentahsin.com';
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bentahsin.com';
     const postUrl = `${siteUrl}/blog/${post.tag.slug}/${post.slug}`;
     const imageUrl = `${siteUrl}${post.coverImage || '/assets/blog-placeholder.png'}`;
 
@@ -118,12 +118,12 @@ export default async function PostPage({ params }: PostPageProps): Promise<JSX.E
         '@type': 'BlogPosting',
         'headline': post.title,
         'description': post.summary,
-        'image': `https://www.bentahsin.com${post.coverImage || '/assets/blog-placeholder.png'}`,
-        'author': { '@type': 'Person', 'name': 'Tahsin', 'url': 'https://www.bentahsin.com' },
+        'image': `https://bentahsin.com${post.coverImage || '/assets/blog-placeholder.png'}`,
+        'author': { '@type': 'Person', 'name': 'Tahsin', 'url': 'https://bentahsin.com' },
         'publisher': {
             '@type': 'Organization',
             'name': 'bentahsin',
-            'logo': { '@type': 'ImageObject', 'url': 'https://www.bentahsin.com/logo.png' }
+            'logo': { '@type': 'ImageObject', 'url': 'https://bentahsin.com/logo.png' }
         },
         'datePublished': post.publishedAt ? post.publishedAt.toISOString() : undefined,
         'dateModified': post.updatedAt.toISOString(),

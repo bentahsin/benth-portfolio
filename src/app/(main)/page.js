@@ -1,6 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import prisma from '@/lib/prisma';
+import PostCard from '@/components/PostCard'
 import { projectsData } from '@/data/projectsData';
 import DynamicSpotifyActivity from '@/components/DynamicSpotifyActivity';
 import JsonLd from '@/components/JsonLd';
@@ -10,7 +12,7 @@ import ProjectCardUpdateStatus from '@/components/GitHub/ProjectCardUpdateStatus
 import { GitHubDataProvider } from '@/components/GitHub/GitHubDataProvider';
 import PgpButton from '@/components/PgpButton';
 
-export default function Home() {
+export default async function Home() {
     const availabilityMap = {
         available: {
             text: "Yeni Projelere Açık",
@@ -40,6 +42,21 @@ export default function Home() {
             "name": "bentahsin"
         }
     };
+
+    const latestPosts = await prisma.post.findMany({
+        where: { status: 'PUBLISHED' },
+        orderBy: { publishedAt: 'desc' },
+        take: 3,
+        select: {
+            slug: true,
+            title: true,
+            summary: true,
+            coverImage: true,
+            publishedAt: true,
+            readingTime: true,
+            tag: { select: { slug: true } }
+        }
+    });
 
     const myPgpKey = `-----BEGIN PGP PUBLIC KEY BLOCK-----
 Comment: Kullanıcı Kimliği:	Tahsin <tahsin@bentahsin.com>
@@ -319,6 +336,19 @@ M59YCyTN4wD/elc0brbTghu94qyBUvPkMKJpa7AGMu/0us1vRAY78Ac=
                                 </div>
                             </article>
                         ))}
+                    </div>
+                </section>
+                <section id="latest-posts">
+                    <h2 className="section-title">Son Yazılar</h2>
+                    <div className="posts-grid">
+                        {latestPosts.map(post => (
+                            <PostCard key={post.slug} post={post} />
+                        ))}
+                    </div>
+                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                        <Link href="/blog" className="cta-button secondary">
+                            Tüm Yazıları Gör
+                        </Link>
                     </div>
                 </section>
                 <section id="contact">

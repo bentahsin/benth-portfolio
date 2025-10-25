@@ -19,6 +19,7 @@ const primaryLinks: NavLink[] = [
     { href: '/#about', label: 'Hakkımda' },
     { href: '/#skills', label: 'Yeteneklerim' },
     { href: '/#projects', label: 'Projelerim' },
+    { href: '/blog', label: 'Blog' },
     { href: '/#contact', label: 'İletişim' },
 ];
 

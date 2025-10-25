@@ -16,6 +16,7 @@ const quickLinks: NavLink[] = [
 ];
 
 const otherPages: NavLink[] = [
+  { href: '/blog', label: 'Blog' },
   { href: '/now', label: 'Şimdi' },
   { href: '/changelog', label: 'Güncellemeler' },
   { href: '/contributions', label: 'Katkılar' },

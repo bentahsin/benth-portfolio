@@ -1,0 +1,135 @@
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--footer-bg);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.main-footer {
+    background-color: var(--footer-bg);
+    padding: 4rem 5% 2rem;
+    border-top: 1px solid var(--card-bg);
+    color: var(--text-secondary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto 3rem auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 3rem;
+}
+
+.footer-col h4 {
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-logo {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    display: inline-block;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+.footer-logo:hover {
+    color: var(--accent-color);
+}
+
+.about-col p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+    max-width: 350px;
+}
+
+.links-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.links-col a {
+    color: var(--text-secondary);
+    position: relative;
+    padding-left: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.links-col a::before {
+    content: '→ ';
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.links-col a:hover {
+    color: var(--accent-color);
+    transform: translateX(5px);
+}
+
+.links-col a:hover::before {
+    opacity: 1;
+}
+
+.footer-social-links a {
+    display: inline-block;
+    color: var(--text-secondary);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--card-bg);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 992px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .footer-col {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-col p {
+        margin: 0 auto;
+    }
+    .links-col a {
+        padding-left: 0;
+    }
+    .links-col a::before {
+        display: none;
+    }
+    .links-col a:hover {
+        transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-bottom {
+        flex-direction: column-reverse;
+        text-align: center;
+    }
+}

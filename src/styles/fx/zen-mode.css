@@ -1,0 +1,38 @@
+.zen-mode-toggle {
+    background: none;
+    border: 1px solid var(--card-bg);
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: none;
+    transition: all 0.3s ease;
+}
+.zen-mode-toggle:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+}
+[data-zen-mode="true"] .background-effects,
+[data-zen-mode="true"] .cursor-dot,
+[data-zen-mode="true"] .cursor-outline,
+[data-zen-mode="true"] #tsparticles {
+    display: none !important;
+}
+[data-zen-mode="true"] [data-sr-id] {
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+}
+[data-zen-mode="true"] * {
+    cursor: auto !important;
+}
+@media (max-width: 992px) {
+    .zen-mode-toggle {
+        display: none;
+    }
+}

@@ -44,7 +44,7 @@ export default function NowPage() {
             
             <h1 className="now-page-title">ŞU AN</h1>
             <p className="now-page-subtitle">
-                Bu sayfa, şu anda hayatımda nelere odaklandığıma dair bir güncellemedir. <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">"Now Page"</a> akımından esinlenilmiştir.
+                Bu sayfa, şu anda hayatımda nelere odaklandığıma dair bir güncellemedir. <a href="https://nownownow.com/about" target="_blank" rel="noopener noreferrer">&quot;Now Page&quot;</a> akımından esinlenilmiştir.
                 <br />
                 Son Güncelleme: <strong>12 Ekim 2025</strong>
             </p>

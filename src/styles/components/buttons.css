@@ -1,0 +1,49 @@
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 1rem 2.5rem;
+    border-radius: 5px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.cta-button:hover {
+    box-shadow: 0 10px 20px rgba(158, 8, 217, 0.2);
+    color: #000;
+}
+.cta-button.secondary {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+.cta-button.secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+.cta-button.secondary.copied {
+    background-color: #1DB954;
+    border-color: #1DB954;
+    color: #fff;
+}
+.cta-button.secondary.copied:hover {
+    box-shadow: 0 10px 20px #1db9541f;
+}
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.back-button:hover {
+    color: var(--accent-color);
+}

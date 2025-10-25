@@ -1,0 +1,55 @@
+.now-page-section {
+    padding: 6rem 5%;
+    min-height: 100vh;
+}
+.now-page-container {
+    margin: 0 auto;
+}
+.now-page-title {
+    font-size: clamp(3rem, 10vw, 5rem);
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.now-page-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    line-height: 1.7;
+}
+.now-page-subtitle a {
+    text-decoration: underline;
+}
+.now-items-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+.now-item-card {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid var(--accent-color);
+}
+.now-item-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.now-item-icon {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+}
+.now-item-card h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+.now-item-card p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin: 0;
+}

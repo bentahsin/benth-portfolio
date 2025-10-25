@@ -1,0 +1,27 @@
+.info-box {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--accent-color);
+    border-radius: 8px;
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+}
+.info-box-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+.info-box-header h4 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+}
+.info-box-header svg {
+    font-size: 1.3rem;
+    color: var(--accent-color);
+}
+.info-box-content p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+}

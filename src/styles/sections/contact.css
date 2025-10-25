@@ -1,0 +1,22 @@
+#contact {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--card-bg); 
+}
+.contact-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.contact-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--accent-color);
+}
+.contact-content p {
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}

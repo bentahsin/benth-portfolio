@@ -1,0 +1,56 @@
+.glow {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    filter: blur(150px); 
+    transition: opacity 1.5s ease;
+    will-change: opacity, filter;
+}
+
+.glow.visible {
+    opacity: 0.5; 
+}
+
+#glow-hero {
+    width: 700px;
+    height: 700px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, #d73bf6, transparent 60%);
+}
+
+#glow-skills {
+    width: 600px;
+    height: 600px;
+    top: 25%;
+    left: 15%;
+    background: radial-gradient(circle, var(--accent-color), transparent 60%);
+}
+
+#glow-music {
+    width: 600px;
+    height: 600px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    background: radial-gradient(circle, #1DB954, transparent 60%);
+}
+
+#glow-projects {
+    width: 800px;
+    height: 800px;
+    top: 50%;
+    right: 45%;
+    transform: translate(40%, -50%);
+    background: radial-gradient(circle, #ec207f, transparent 60%);
+}
+
+#glow-contact {
+    width: 700px;
+    height: 700px;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, 40%);
+    background: radial-gradient(circle, #8b5cf6, transparent 60%);
+}

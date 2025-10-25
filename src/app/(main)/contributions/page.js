@@ -58,7 +58,7 @@ export default function ContributionsPage() {
                 <div className="contributions-container">
                     <h1 className="contributions-main-title">Açık Kaynak Katkılarım</h1>
                     <p className="contributions-subtitle">
-                        Yazılım topluluğuna yaptığım ve birleştirilmiş (merged) Pull Request'lerin bir listesi.
+                        Yazılım topluluğuna yaptığım ve birleştirilmiş (merged) Pull Request&apos;lerin bir listesi.
                     </p>
                     <div className="contributions-list">
                         {contributions.map(pr => (

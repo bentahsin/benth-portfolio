@@ -1,0 +1,27 @@
+.cursor-dot,
+.cursor-outline {
+    pointer-events: none;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 100000;
+    opacity: 0;
+    will-change: transform;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: var(--cursor-dot);
+}
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent-color);
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-out, height 0.3s ease-out;
+}
+.cursor-outline.hovered {
+    width: 60px;
+    height: 60px;
+}

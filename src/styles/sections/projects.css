@@ -1,0 +1,89 @@
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.project-card {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    align-items: center;
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+}
+.project-card.reverse > a {
+    order: 2;
+}
+.project-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+.project-card:hover .project-image img {
+    opacity: 1;
+}
+.project-info {
+    padding: 0 1rem;
+}
+.project-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.project-tags svg {
+    width: 2rem;
+    height: 2rem;
+}
+.project-tags span {
+    background-color: rgba(140, 8, 217, 0.1);
+    color: #fff;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+.project-info p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+}
+.project-button {
+    background: none;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.8rem 1.8rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+.project-button:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+.project-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+    .project-card, .project-card.reverse {
+        grid-template-columns: 1fr;
+    }
+    .project-card.reverse .project-image {
+        order: 0;
+    }
+    .project-info {
+        padding: 1rem 0;
+    }
+}

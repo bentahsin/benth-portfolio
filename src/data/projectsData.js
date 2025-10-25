@@ -63,14 +63,14 @@ import FeatureItem from '@/components/CaseStudy/FeatureItem';
 import InfoBox from '@/components/CaseStudy/InfoBox';
 import CodeDiff from '@/components/CaseStudy/CodeDiff';
 
-import JavaIcon from '@/components/icons/JavaIcon';
-import SQLiteIcon from '@/components/icons/SQLiteIcon';
-import MySQLIcon from '@/components/icons/MySQLIcon';
-import NodeJSIcon from '@/components/icons/NodeJSIcon';
-import FastifyIcon from '@/components/icons/FastifyIcon';
-import PostgreSQLIcon from '@/components/icons/PostgreSQLIcon';
-import RedisIcon from '@/components/icons/RedisIcon';
-import CppIcon from '@/components/icons/CppIcon';
+import JavaIcon from '@/components/Icons/JavaIcon';
+import SQLiteIcon from '@/components/Icons/SQLiteIcon';
+import MySQLIcon from '@/components/Icons/MySQLIcon';
+import NodeJSIcon from '@/components/Icons/NodeJSIcon';
+import FastifyIcon from '@/components/Icons/FastifyIcon';
+import PostgreSQLIcon from '@/components/Icons/PostgreSQLIcon';
+import RedisIcon from '@/components/Icons/RedisIcon';
+import CppIcon from '@/components/Icons/CppIcon';
 
 import AntiAfkBlockText from '@/components/Images/AntiAfkBlockText';
 import BenthDungeonsBlockText from '@/components/Images/BenthDungeonsBlockText';
@@ -79,8 +79,24 @@ import BenthPatcherBlockText from '@/components/Images/BenthPatcherBlockText';
 import LicenseLibBlockText from '@/components/Images/LicenseLibBlockText';
 import BenthLicenseAPIBlockText from '@/components/Images/BenthLicenseAPIBlockText';
 import MynerithBlockText from '@/components/Images/MynerithBlockText';
-import TypeScriptIcon from '@/components/icons/TypeScriptIcon';
+import TypeScriptIcon from '@/components/Icons/TypeScriptIcon';
 import BenthPapiMgrBlockText from '@/components/Images/BenthPapiMgrBlockText';
+
+/**
+ * @typedef {object} ProjectData
+ * @property {string} slug - Projenin benzersiz URL kimliği.
+ * @property {string} title - Projenin ana başlığı.
+ * @property {string} subtitle - Projenin alt başlığı.
+ * @property {string} image - Proje ana görselinin yolu.
+ * @property {string[] | null | undefined} [projectUrl] - Projeyle ilgili dış bağlantılar (GitHub, canlı site vb.). Opsiyonel.
+ * @property {boolean | undefined} [isPublicRepo] - GitHub reposu public mi? Opsiyonel.
+ * @property {string[]} tags - Projeyle ilgili etiketler/anahtar kelimeler dizisi.
+ * @property {React.ReactNode[]} tagIcons - Proje kartında gösterilecek ikonlar (JSX elementleri dizisi).
+ * @property {string} description - Projenin kısa açıklaması (meta description için de kullanılır).
+ * @property {React.ReactNode} caseStudyTitle - Proje detay sayfasındaki H1 başlığı (JSX olabilir).
+ * @property {string | null | undefined} [seoTitle] - SEO için özel başlık (opsiyonel).
+ * @property {React.ReactNode} caseStudyContent - Proje detay sayfasının ana içeriği (JSX).
+ */
 
 const beforePatchCode = `
 import org.bukkit.plugin.java.JavaPlugin;
@@ -314,7 +330,7 @@ const caseStudies = {
 
         <hr />
 
-        <SectionHeader icon={faCogs}>Sıradan Çözümleri Unutun: AntiAFK'nın Üstün Zekası</SectionHeader>
+        <SectionHeader icon={faCogs}>Sıradan Çözümleri Unutun: AntiAFK&apos;nın Üstün Zekası</SectionHeader>
         <ul className="feature-list">
           <FeatureItem icon={faChartLine}>
             <strong>Gelişmiş Davranış Analizi:</strong> Sürekli aynı daireyi çizen, ileri geri yürüyen veya belirli bir rotayı tekrar eden botlar artık sorun değil. AntiAFK, oyuncuların hareket yörüngelerini analiz eder ve insan eliyle yapılması imkansız olan tekrarlayan kalıpları anında tespit eder.
@@ -332,7 +348,7 @@ const caseStudies = {
         <SectionHeader icon={faDesktop}>Yönetimi Karmaşık Değil, Keyifli Hale Getirin</SectionHeader>
         <ul className="feature-list">
             <FeatureItem icon={faDesktop}>
-                <strong>Tamamen Oyun İçi Yönetim Paneli (GUI):</strong> FTP'ye bağlanmanıza veya karmaşık config dosyalarıyla boğuşmanıza gerek yok. <code>/antiafk panel</code> komutuyla tüm ayarları anında değiştirin. Hatta <code>antiafk reload</code> gibi komutlara bile gerek kalmadan değişiklikler anında yansır.
+                <strong>Tamamen Oyun İçi Yönetim Paneli (GUI):</strong> FTP&apos;ye bağlanmanıza veya karmaşık config dosyalarıyla boğuşmanıza gerek yok. <code>/antiafk panel</code> komutuyla tüm ayarları anında değiştirin. Hatta <code>antiafk reload</code> gibi komutlara bile gerek kalmadan değişiklikler anında yansır.
             </FeatureItem>
             <FeatureItem icon={faFileSignature}>
                 <strong>Gelişmiş Komut Düzenleyici:</strong> ProtocolLib entegrasyonu ile bölge aksiyonları için uzun ve karmaşık komutları bile oyun içindeki kitap arayüzü sayesinde rahatça yazıp kaydedin, hata riskini ortadan kaldırın.
@@ -348,7 +364,7 @@ const caseStudies = {
                   <strong>Ekonomiyi Korumak İçin:</strong> AFK Farmların yarattığı enflasyonun ve dengesizliğin önüne geçin.
               </FeatureItem>
                <FeatureItem icon={faTachometerAlt}>
-                  <strong>Sunucu Performansı İçin:</strong> Gereksiz **afk players**'ı otomatik olarak uzaklaştırarak sunucunuzda yer açın.
+                  <strong>Sunucu Performansı İçin:</strong> Gereksiz **afk players**&apos;ı otomatik olarak uzaklaştırarak sunucunuzda yer açın.
               </FeatureItem>
               <FeatureItem icon={faUserTie}>
                   <strong>Profesyonel Bir İmaj İçin:</strong> Oyuncularınıza, sunucunuzun adil ve iyi yönetilen bir yer olduğunu gösterin.
@@ -482,7 +498,7 @@ const caseStudies = {
   mynerith: (
           <>
         <SectionHeader icon={faRocket}>Proje Özeti</SectionHeader>
-        <p><strong>Mynerith</strong>, modern web teknolojileriyle geliştirilmiş, dijital ürün satışı, içerik yönetimi (CMS) ve müşteri desteği için tasarlanmış kişisel ve tam özellikli bir e-ticaret çözümüdür. Proje, Next.js App Router'ın gücünü kullanarak sunucu tarafında render edilen (SSR), SEO dostu ve ölçeklenebilir bir yapı sunar. Arka planda BullMQ ve Redis ile yönetilen asenkron iş kuyrukları, LangChain.js ve Google Gemini ile oluşturulmuş gelişmiş yapay zeka agent mimarisi ve Prisma ile entegre edilmiş sağlam veritabanı yapısıyla kurumsal düzeyde bir uygulama altyapısı sağlar.</p>
+        <p><strong>Mynerith</strong>, modern web teknolojileriyle geliştirilmiş, dijital ürün satışı, içerik yönetimi (CMS) ve müşteri desteği için tasarlanmış kişisel ve tam özellikli bir e-ticaret çözümüdür. Proje, Next.js App Router&apos;ın gücünü kullanarak sunucu tarafında render edilen (SSR), SEO dostu ve ölçeklenebilir bir yapı sunar. Arka planda BullMQ ve Redis ile yönetilen asenkron iş kuyrukları, LangChain.js ve Google Gemini ile oluşturulmuş gelişmiş yapay zeka agent mimarisi ve Prisma ile entegre edilmiş sağlam veritabanı yapısıyla kurumsal düzeyde bir uygulama altyapısı sağlar.</p>
 
         <hr />
 
@@ -501,16 +517,16 @@ const caseStudies = {
         <hr />
 
         <SectionHeader icon={faRobot}>Agentic AI Mimarisi: Proaktif Bir Asistan</SectionHeader>
-        <p>Mynerith'teki yapay zeka, basit bir "chatbot"un çok ötesindedir. Bu, projenin kalbine entegre edilmiş, <strong>LangGraph</strong> ile yönetilen, proaktif, çok adımlı görevleri yerine getirebilen ve sitenin canlı veritabanıyla doğrudan etkileşime geçebilen <strong>agentic bir mimaridir</strong>.</p>
+        <p>Mynerith&apos;teki yapay zeka, basit bir &quot;chatbot&quot;un çok ötesindedir. Bu, projenin kalbine entegre edilmiş, <strong>LangGraph</strong> ile yönetilen, proaktif, çok adımlı görevleri yerine getirebilen ve sitenin canlı veritabanıyla doğrudan etkileşime geçebilen <strong>agentic bir mimaridir</strong>.</p>
         
         <h4>Mimari: Proje Yöneticisi ve Uzmanlar Ekibi</h4>
         <p>Sistem, bir proje yöneticisi (Planner) ve kendi alanlarında uzmanlaşmış (Admin, Catalog, Account, Knowledge) bir agent ekibinden oluşur. LangGraph Planner, karmaşık istekleri adımlara bölerek doğru uzmanları sırayla göreve atar.</p>
 
         <InfoBox title="Akıllı Yetenekler" icon={faMagic}>
             <ul className="feature-list">
-                <FeatureItem icon={faChartLine}><strong>Etkileşimli Raporlama:</strong> *"Geçen haftaki ciro ne kadardı?"* gibi doğal dil sorgularıyla anında raporlar alın.</FeatureItem>
+                <FeatureItem icon={faChartLine}><strong>Etkileşimli Raporlama:</strong> *&quot;Geçen haftaki ciro ne kadardı?&quot;* gibi doğal dil sorgularıyla anında raporlar alın.</FeatureItem>
                 <FeatureItem icon={faBook}><strong>Genişletilebilir Bilgi Tabanı (RAG):</strong> PDF, DOCX, YML gibi dosyalar yükleyerek yapay zekanın bilgi dağarcığını genişletin ve ürün kurulumu gibi spesifik sorulara anında cevap almasını sağlayın.</FeatureItem>
-                <FeatureItem icon={faFileCode}><strong>Akıllı İçerik Üretimi:</strong> *"Yeni kullanıcılara özel %20'lik bir kupon oluştur."* veya *"BenthFarming eklentisi için bir blog yazısı taslağı hazırla."* gibi komutlarla kupon, blog ve ürün açıklamalarını saniyeler içinde otomatik olarak oluşturun.</FeatureItem>
+                <FeatureItem icon={faFileCode}><strong>Akıllı İçerik Üretimi:</strong> *&quot;Yeni kullanıcılara özel %20&apos;lik bir kupon oluştur.&quot;* veya *&quot;BenthFarming eklentisi için bir blog yazısı taslağı hazırla.&quot;* gibi komutlarla kupon, blog ve ürün açıklamalarını saniyeler içinde otomatik olarak oluşturun.</FeatureItem>
             </ul>
         </InfoBox>
 
@@ -532,17 +548,17 @@ const caseStudies = {
   benthpapimanager: (
       <>
         <SectionHeader icon={faMagic}>Placeholder Oluşturmayı Sihre Dönüştürün</SectionHeader>
-        <p><strong>BenthPapiManager</strong>, PlaceholderAPI için yeni placeholder'lar oluşturma sürecini kökten değiştirir. Karmaşık `PlaceholderExpansion` sınıfları yazmak, metotları manuel olarak yönlendirmek ve bağımlılıkları yönetmek yerine, BenthPapiManager size temiz, okunabilir ve "sadece çalışan" bir yapı sunar.</p>
+        <p><strong>BenthPapiManager</strong>, PlaceholderAPI için yeni placeholder&apos;lar oluşturma sürecini kökten değiştirir. Karmaşık `PlaceholderExpansion` sınıfları yazmak, metotları manuel olarak yönlendirmek ve bağımlılıkları yönetmek yerine, BenthPapiManager size temiz, okunabilir ve &quot;sadece çalışan&quot; bir yapı sunar.</p>
 
         <hr />
 
         <SectionHeader icon={faStar}>Öne Çıkan Özellikler</SectionHeader>
         <ul className="feature-list">
-          <FeatureItem icon={faCode}><strong>Annotation Tabanlı:</strong> Karmaşık `PlaceholderExpansion` sınıfları yerine, `@Placeholder` ve `@PlaceholderIdentifier` gibi basit anotasyonlarla placeholder'larınızı tanımlayın.</FeatureItem>
-          <FeatureItem icon={faLink}><strong>Sıfır Bağımlılık:</strong> `Reflections` gibi harici kütüphanelere ihtiyaç duymaz. Sadece PAPI ve Spigot API'si yeterlidir. Bu, çakışma riskini ortadan kaldırır.</FeatureItem>
+          <FeatureItem icon={faCode}><strong>Annotation Tabanlı:</strong> Karmaşık `PlaceholderExpansion` sınıfları yerine, `@Placeholder` ve `@PlaceholderIdentifier` gibi basit anotasyonlarla placeholder&apos;larınızı tanımlayın.</FeatureItem>
+          <FeatureItem icon={faLink}><strong>Sıfır Bağımlılık:</strong> `Reflections` gibi harici kütüphanelere ihtiyaç duymaz. Sadece PAPI ve Spigot API&apos;si yeterlidir. Bu, çakışma riskini ortadan kaldırır.</FeatureItem>
           <FeatureItem icon={faPuzzlePiece}><strong>Gelişmiş Dependency Injection:</strong> Sadece ana plugin sınıfınızı değil, `DatabaseManager` veya `UserManager` gibi herhangi bir yönetici sınıfınızı `@Inject` ile placeholder sınıflarınıza zahmetsizce enjekte edin.</FeatureItem>
-          <FeatureItem icon={faBolt}><strong>Asenkron Placeholder'lar:</strong> Veritabanı sorguları gibi yavaş işlemler için metotlarınızı `async = true` olarak işaretleyin ve sunucunuzu lag'dan koruyun.</FeatureItem>
-          <FeatureItem icon={faCogs}><strong>Otomatik Yaşam Döngüsü:</strong> Kütüphane, kaydedilen tüm placeholder'ları `onDisable`'da `unregisterAll()` ile otomatik olarak temizlemenizi sağlayarak "reload" güvenliği sunar.</FeatureItem>
+          <FeatureItem icon={faBolt}><strong>Asenkron Placeholder&apos;lar:</strong> Veritabanı sorguları gibi yavaş işlemler için metotlarınızı `async = true` olarak işaretleyin ve sunucunuzu lag&apos;dan koruyun.</FeatureItem>
+          <FeatureItem icon={faCogs}><strong>Otomatik Yaşam Döngüsü:</strong> Kütüphane, kaydedilen tüm placeholder&apos;ları `onDisable`&apos;da `unregisterAll()` ile otomatik olarak temizlemenizi sağlayarak &quot;reload&quot; güvenliği sunar.</FeatureItem>
         </ul>
 
         <hr />
@@ -568,11 +584,11 @@ const caseStudies = {
 </dependencies>`}</code></pre>
 
         <InfoBox title="Shading (Gölgeleme) Çok Önemli!" icon={faShieldAlt}>
-          <p>Kütüphaneyi kendi eklentinizin JAR dosyasına dahil etmek ve diğer eklentilerle çakışmasını önlemek için `maven-shade-plugin`'i kullanmalısınız. Bu, kütüphanenin paket yolunu (`com.bentahsin...`) kendi eklentinizin paket yolunun altına taşır.</p>
+          <p>Kütüphaneyi kendi eklentinizin JAR dosyasına dahil etmek ve diğer eklentilerle çakışmasını önlemek için `maven-shade-plugin`&apos;i kullanmalısınız. Bu, kütüphanenin paket yolunu (`com.bentahsin...`) kendi eklentinizin paket yolunun altına taşır.</p>
         </InfoBox>
 
         <h4>2. Kütüphaneyi Başlatma</h4>
-        <p>Plugin'inizin `onEnable()` metodunda, BenthPapiManager'ın akıcı builder'ını kullanarak her şeyi yapılandırın.</p>
+        <p>Plugin&apos;inizin `onEnable()` metodunda, BenthPapiManager&apos;ın akıcı builder&apos;ını kullanarak her şeyi yapılandırın.</p>
         <pre><code>{`this.papiManager = BenthPAPIManager.create(this)
         .withInjectable(DatabaseManager.class, this.databaseManager)
         .withDefaultErrorText("§c-")
@@ -583,7 +599,7 @@ const caseStudies = {
         );`}</code></pre>
         
         <h4>3. Placeholder Sınıfı Oluşturma</h4>
-        <p>Artık tek yapmanız gereken, anotasyonları kullanarak placeholder'larınızı tanımlamak.</p>
+        <p>Artık tek yapmanız gereken, anotasyonları kullanarak placeholder&apos;larınızı tanımlamak.</p>
         <pre><code>{`@Placeholder(identifier = "myplugin", author = "YourName", version = "1.0")
 public class OyuncuPlaceholders {
 
@@ -606,6 +622,7 @@ public class OyuncuPlaceholders {
     )
 };
 
+/** @type {ProjectData[]} */
 export const projectsData = [
     {
     slug: 'mynerith',
@@ -640,6 +657,8 @@ export const projectsData = [
     title: 'BenthPatcher',
     subtitle: 'Java Bytecode Manipülasyon CLI Aracı',
     image: '/assets/benthpatcher-16-9.png',
+    projectUrl: null,
+    isPublicRepo: false,
     tags: ['Bytecode Manipulation', 'CLI Aracı', 'Otomatik Lisanslama', 'JAR Enjeksiyonu', 'Geliştirici Araçları'],
     tagIcons: [<JavaIcon key="java" />],
     description: "Java uygulamalarınıza ve Minecraft eklentilerinize, kaynak kodunu değiştirmeden lisanslama ekleyin. BenthPatcher CLI aracı, bytecode manipülasyonu ile .jar dosyalarınıza saniyeler içinde güvenlik katmanı enjekte eder.",
@@ -652,6 +671,8 @@ export const projectsData = [
     title: 'BenthLicense API',
     subtitle: 'Gerçek Zamanlı Lisans Yönetim Sunucusu',
     image: '/assets/benthlicenseapi-16-9.png',
+    projectUrl: null,
+    isPublicRepo: false,
     tags: ['WebSocket API', 'REST API', 'Gerçek Zamanlı Yönetim', 'Merkezi Kontrol', 'RBAC Yetkilendirme'],
     tagIcons: [<NodeJSIcon key="node" />, <FastifyIcon key="fastify" />, <PostgreSQLIcon key="postgres" />, <RedisIcon key="redis" />],
     description: "Dijital ürünleriniz için merkezi ve güvenli bir lisans yönetim platformu. Node.js, Fastify ve PostgreSQL üzerine kurulu olup, WebSocket ve REST API'leri ile tam kontrol ve gerçek zamanlı yönetim sağlar.",
@@ -664,6 +685,8 @@ export const projectsData = [
     title: 'BenthLicense Kütüphanesi',
     subtitle: 'Java için Güçlü Lisanslama ve Anti-Tamper Kütüphanesi',
     image: '/assets/LicenseLib-16-9.png',
+    projectUrl: null,
+    isPublicRepo: false,
     tags: ['Java Native Interface', 'Cryptography', 'Anti-Tamper', 'JNI Security', 'Anti Java Agent', 'Bytecode Fingerprinting'],
     tagIcons: [<JavaIcon key="java" />, <CppIcon key="cpp" />],
     description: "Java uygulamalarınızı JNI, Kriptografi ve Anti-Tamper teknolojileriyle koruyan istemci kütüphanesi. BenthPatcher ile tam entegre çalışarak kırılması neredeyse imkansız bir güvenlik katmanı sağlar.",
@@ -704,6 +727,8 @@ export const projectsData = [
     title: 'BenthDungeons',
     subtitle: 'MythicDungeons için Kademe ve Bilet Sistemi',
     image: '/assets/BenthDungeons_4-3.png',
+    projectUrl: null,
+    isPublicRepo: false,
     tags: ['Java Reflection', 'MythicDungeons API', 'Plugin Entegrasyonu', 'Kademe Sistemi'],
     tagIcons: [<JavaIcon key="java" />, <SQLiteIcon key="sqlite" />, <MySQLIcon key="mysql" />],
     description: "MythicDungeons sunucunuzu Kademe ve Bilet sistemleri ile profesyonelleştirin. Kilitli API'lere Java Reflection ile erişerek oyunculara net ilerleme hedefleri ve sunucu ekonominize entegre bir yapı sunan add-on.",

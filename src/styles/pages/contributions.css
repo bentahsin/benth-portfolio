@@ -1,0 +1,93 @@
+.contributions-page-section {
+    padding: 6rem 5%;
+    min-height: 100vh;
+}
+.contributions-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+.contributions-main-title {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.contributions-subtitle {
+    text-align: center;
+    color: var(--text-secondary);
+    margin-bottom: 4rem;
+    font-size: 1.1rem;
+}
+.contributions-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contribution-card {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+.contribution-card:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-5px);
+    background-color: var(--footer-bg);
+}
+.contribution-icon {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+.contribution-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.contribution-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.contribution-repo {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+.contribution-repo strong {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+.contribution-date {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-align: right;
+}
+.contribution-card.skeleton {
+    display: block;
+    padding: 1.5rem;
+}
+.contribution-card.skeleton .skeleton-line {
+    background-color: var(--footer-bg);
+}
+.contribution-card.skeleton .skeleton-line.title {
+    height: 20px;
+    margin-bottom: 1rem;
+}
+.contribution-card.skeleton .skeleton-line.text {
+    height: 14px;
+}
+
+@media (max-width: 768px) {
+    .contribution-card {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    .contribution-date {
+        text-align: left;
+        margin-top: 0.5rem;
+    }
+}

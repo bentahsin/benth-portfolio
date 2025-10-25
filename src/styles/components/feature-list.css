@@ -1,0 +1,20 @@
+.feature-list {
+    list-style: none;
+    padding-left: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+.feature-item-icon {
+    color: var(--accent-color);
+    font-size: 1.2rem;
+    margin-top: 3px;
+}

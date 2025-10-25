@@ -1,0 +1,30 @@
+.accordion {
+cursor: pointer;
+overflow: hidden;
+}
+.accordion-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.accordion-header h4 {
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+.accordion-arrow {
+    transition: transform 0.4s ease;
+}
+.accordion-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
+}
+.accordion-content {
+    overflow: hidden;
+}
+.accordion.is-open .accordion-content-wrapper {
+    grid-template-rows: 1fr;
+}
+.accordion.is-open .accordion-arrow {
+    transform: rotate(180deg);
+}

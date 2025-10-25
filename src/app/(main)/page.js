@@ -2,9 +2,10 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
-import SpotifyActivity from '@/components/Spotify/SpotifyActivity';
+import DynamicSpotifyActivity from '@/components/DynamicSpotifyActivity';
 import JsonLd from '@/components/JsonLd';
 import { siteConfig } from '@/data/siteConfig';
+import ProjectCardLink from '@/components/ProjectCardLink';
 import ProjectCardUpdateStatus from '@/components/GitHub/ProjectCardUpdateStatus';
 import { GitHubDataProvider } from '@/components/GitHub/GitHubDataProvider';
 import PgpButton from '@/components/PgpButton';
@@ -91,7 +92,7 @@ M59YCyTN4wD/elc0brbTghu94qyBUvPkMKJpa7AGMu/0us1vRAY78Ac=
                         <div className="about-text">
                             <h3>Kimim Ben?</h3>
                             <p>
-                                Merhabalar, ben Tahsin. 2014'ten beri tutkuyla bağlı olduğum yazılım dünyasında, kendimi bir kod yazardan çok dijital bir mimar olarak görüyorum.
+                                Merhabalar, ben Tahsin. 2014&apos;ten beri tutkuyla bağlı olduğum yazılım dünyasında, kendimi bir kod yazardan çok dijital bir mimar olarak görüyorum.
                             </p>
                             <h3>Mimari Yaklaşımım</h3>
                             <p>
@@ -122,7 +123,7 @@ M59YCyTN4wD/elc0brbTghu94qyBUvPkMKJpa7AGMu/0us1vRAY78Ac=
                 <section id="music">
                     <h2 className="spotify-section-title">Spotify</h2>
                     <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-                        <SpotifyActivity />
+                        <DynamicSpotifyActivity />
                     </div>
                 </section>
                 <section id="skills">
@@ -274,9 +275,21 @@ M59YCyTN4wD/elc0brbTghu94qyBUvPkMKJpa7AGMu/0us1vRAY78Ac=
                                 key={project.slug}
                                 className={`project-card ${index % 2 !== 0 ? 'reverse' : ''}`}
                             >
-                                <div className="project-image">
-                                    <Image src={project.image} alt={`${project.title} Proje Görseli`} width={600} height={400} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" style={{ objectFit: 'cover' }} />
-                                </div>
+                                <ProjectCardLink href={`/projects/${project.slug}`}>
+                                    <div className="project-image">
+                                        <Image
+                                            src={project.image}
+                                            alt={`${project.title} Proje Görseli`}
+                                            width={600}
+                                            height={400}
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            style={{
+                                                objectFit: 'cover',
+                                                viewTransitionName: `project-image-${project.slug}`
+                                            }}
+                                        />
+                                    </div>
+                                </ProjectCardLink>
                                 <div className="project-info">
                                     <h3 className="project-title">{project.title}</h3>
                                     {project.subtitle && (

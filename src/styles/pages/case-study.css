@@ -1,0 +1,114 @@
+.case-study-page .glow {
+    display: none;
+}
+.case-study-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 5%;
+    border-bottom: 1px solid var(--card-bg);
+}
+.case-study {
+    max-width: 1250px;
+    margin: 4rem auto;
+    padding: 0 5%;
+}
+.case-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+}
+.case-study .project-tags {
+    margin-bottom: 2rem;
+}
+.case-section {
+    margin-bottom: 2rem;
+    min-height: min-content !important;
+    padding: 1.5rem;
+}
+.case-section h3 {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.case-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+.case-section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--card-bg);
+}
+.case-section-header svg {
+    font-size: 1.5rem;
+}
+.case-study-hero-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.case-study-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.related-links-section {
+    margin-top: 4rem;
+}
+.related-links-section h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.links-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+.related-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--card-bg);
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+.related-link:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    transform: translateY(-3px);
+}
+.related-link svg {
+    font-size: 1.2rem;
+}
+.project-update-status {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-style: italic;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.project-update-status:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+.project-update-status.no-link {
+    cursor: default;
+}
+.project-update-status.no-link:hover {
+    color: var(--text-secondary);
+    text-decoration: none;
+}

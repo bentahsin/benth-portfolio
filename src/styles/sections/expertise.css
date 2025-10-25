@@ -1,0 +1,84 @@
+.expertise-category {
+    background: linear-gradient(145deg, rgba(158, 8, 217, 0.1), rgba(32, 17, 39, 0.1));
+    padding: 2.5rem;
+    border-radius: 15px;
+    border: 1px solid rgba(140, 8, 217, 0.2);
+    box-shadow: 0 0 40px rgba(140, 8, 217, 0.1);
+}
+
+.expertise-category h3 {
+    text-align: center;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 2.5rem;
+    color: #fff; 
+}
+
+.expertise-category h3 i {
+    margin-right: 1rem;
+    color: var(--accent-color);
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 2rem;
+}
+
+.expertise-item {
+    background-color: var(--card-bg);
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.expertise-icon-container {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.expertise-icon-container i {
+    margin-right: 0.5rem;
+}
+
+.expertise-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.expertise-item p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.7;
+}
+
+.wide-item {
+    grid-column: 1 / -1; 
+}
+
+.tamper-features {
+    list-style: none;
+    margin-top: 1.5rem;
+    padding-left: 0.5rem;
+}
+
+.tamper-features li {
+    color: var(--text-secondary);
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.tamper-features i {
+    color: var(--accent-color);
+    margin-right: 0.8rem;
+    margin-top: 5px; 
+}
+
+@media (max-width: 992px) {
+    .expertise-grid {
+        grid-template-columns: 1fr; 
+    }
+}

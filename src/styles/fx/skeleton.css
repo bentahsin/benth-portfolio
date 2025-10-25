@@ -1,0 +1,55 @@
+.skeleton .skeleton-icon {
+    width: 14px;
+    height: 14px;
+    background-color: var(--text-secondary);
+    border-radius: 50%;
+    opacity: 0.3;
+}
+.skeleton .skeleton-text {
+    width: 80px;
+    height: 12px;
+    background-color: var(--text-secondary);
+    border-radius: 4px;
+    opacity: 0.3;
+}
+.post-card.skeleton {
+    background-color: var(--card-bg);
+}
+.skeleton-image, .skeleton-line {
+    background-color: var(--footer-bg);
+    animation: pulse-bg 1.5s infinite ease-in-out;
+}
+.skeleton-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+.skeleton-line {
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+.skeleton-line {
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    margin-bottom: 0.75rem;
+}
+.skeleton-line.title {
+    width: 60%;
+    height: 24px;
+}
+.skeleton-line.text {
+    width: 90%;
+    height: 16px;
+}
+.skeleton-line.text.short {
+    width: 70%;
+}
+.skeleton-line.date { width: 40%; height: 12px; }
+.skeleton-line.title { width: 80%; height: 20px; }
+.skeleton-line.text { width: 100%; height: 14px; }
+.skeleton-line.text.short { width: 60%; }
+
+@keyframes pulse-bg {
+    0% { background-color: var(--footer-bg); }
+    50% { background-color: #2d3748; }
+    100% { background-color: var(--footer-bg); }
+}

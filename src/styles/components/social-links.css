@@ -1,0 +1,11 @@
+.social-links {
+    margin-top: 3rem;
+}
+.social-links a svg {
+    color: var(--text-secondary);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+.social-links a:hover svg {
+    transform: scale(1.2);
+    color: var(--accent-color);
+}

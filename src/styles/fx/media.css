@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+    .background-grid {
+        animation: none;
+    }
+    .glow {
+        filter: none;
+        opacity: 0.2 !important;
+    }
+    #glow-hero, #glow-skills, #glow-projects, #glow-contact {
+        background: radial-gradient(circle, var(--accent-color), transparent 70%);
+        width: 300px;
+        height: 300px;
+        filter: blur(80px);
+    }
+    #glow-music {
+        display: none;
+    }
+}

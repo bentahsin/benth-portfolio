@@ -1,8 +1,6 @@
 import PostEditor from "@/components/admin/PostEditor";
 import prisma from "@/lib/prisma";
 
-export const dynamic = 'force-dynamic';
-
 export default async function NewPostPage() {
     const tags = await prisma.tag.findMany({ orderBy: { name: 'asc' } });
 

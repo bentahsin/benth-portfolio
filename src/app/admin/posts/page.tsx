@@ -19,16 +19,12 @@ const postWithDetails = Prisma.validator<Prisma.PostDefaultArgs>()({
             slug: true,
         }
         },
-        _count: {
-        select: { comments: true },
-        }
     }
 });
 
 type PostWithDetails = Prisma.PostGetPayload<typeof postWithDetails>;
 
 export default async function AdminPostsPage(): Promise<React.ReactElement> {
-    
     const posts: PostWithDetails[] = await prisma.post.findMany({
         orderBy: {
             createdAt: 'desc',
@@ -45,9 +41,6 @@ export default async function AdminPostsPage(): Promise<React.ReactElement> {
                     slug: true
                 }
             },
-            _count: {
-                select: { comments: true },
-            }
         }
     });
 
@@ -98,7 +91,6 @@ export default async function AdminPostsPage(): Promise<React.ReactElement> {
                                             {post.status === 'PUBLISHED' ? 'Yayınlandı' : 'Taslak'}
                                         </span>
                                     </td>
-                                    <td data-label="Yorumlar">{post._count.comments}</td>
                                     <td data-label="Oluşturulma">{formatTimeAgo(post.createdAt)}</td>
                                     <td data-label="İşlemler" className="actions-cell">
                                         <Link href={`/admin/posts/editor/${post.id}`} className="admin-button small">

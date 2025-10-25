@@ -27,7 +27,6 @@ const navItems: NavItem[] = [
     { href: '/admin', icon: faTachometerAlt, label: 'Dashboard' },
     { href: '/admin/posts', icon: faPen, label: 'Yazılar' },
     { href: '/admin/tags', icon: faTags, label: 'Etiketler' },
-    { href: '/admin/comments', icon: faComments, label: 'Yorumlar' },
 ];
 
 export const metadata = {
@@ -35,7 +34,7 @@ export const metadata = {
         default: 'Dashboard',
         template: '%s | Admin Panel',
     },
-    description: 'Benth Tahsin Portfolyo CMS Yönetim Paneli',
+    description: 'bentahsin Portfolyo CMS Yönetim Paneli',
     robots: {
         index: false,
         follow: false,

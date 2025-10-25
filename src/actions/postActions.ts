@@ -76,7 +76,12 @@ export async function savePost(prevState: State, formData: FormData): Promise<St
     revalidatePath('/admin/posts');
     revalidatePath('/blog');
     if (updatedPost) {
-        revalidatePath(`/blog/${updatedPost.slug}`);
+        const tag = await prisma.tag.findUnique({ where: { id: updatedPost.tagId } });
+        if (tag) {
+            revalidatePath(`/blog/${tag.slug}`);
+            revalidatePath(`/blog/${tag.slug}/${updatedPost.slug}`);
+        }
+        revalidatePath('/');
     }
 
     redirect('/admin/posts');
@@ -93,12 +98,23 @@ export async function deletePost(postId: string): Promise<{ success: boolean; me
     }
 
     try {
+        const postToDelete = await prisma.post.findUnique({
+            where: { id: postId },
+            select: { slug: true, tag: { select: { slug: true } } }
+        });
+
         await prisma.post.delete({
             where: { id: postId },
         });
 
+        if (postToDelete) {
+            revalidatePath(`/blog/${postToDelete.tag.slug}/${postToDelete.slug}`);
+            revalidatePath(`/blog/${postToDelete.tag.slug}`);
+        }
+
         revalidatePath('/admin/posts');
         revalidatePath('/blog');
+        revalidatePath('/');
 
         return { success: true, message: 'Yazı başarıyla silindi.' };
 

@@ -64,6 +64,8 @@ export async function saveTag(prevState: TagFormState, formData: FormData): Prom
 
     revalidatePath('/admin/tags');
     revalidatePath('/blog');
+    revalidatePath('/admin/posts/new');
+    revalidatePath('/admin/posts/editor');
 
     redirect('/admin/tags');
 }

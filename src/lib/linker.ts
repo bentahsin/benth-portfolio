@@ -7,39 +7,39 @@ const MAX_LINKS_PER_CONTENT = 5;
 interface LinkMapItem {
     keyword: string;
     url: string;
-    targetId: string;
 }
-
-const cleanFromMarkdownLinks = (text: string | null | undefined): string => {
-    if (!text) return '';
-    return text.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
-};
 
 export async function autoLinkContent(
     content: string,
     currentContentId: string,
 ): Promise<string> {
-    
     let strippedContent = content.replace(/<a[^>]*>([^<]*)<\/a>/gi, '$1');
     strippedContent = strippedContent.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
-    const [posts, tags] = await Promise.all([
-        prisma.post.findMany({ 
+    const [postsWithKeywords, allTags] = await Promise.all([
+        prisma.post.findMany({
             where: {
                 status: 'PUBLISHED',
-                id: { not: currentContentId }
+                id: { not: currentContentId },
+                internalLinkKeywords: { isEmpty: false }
             },
-            select: { id: true, title: true, slug: true }
+            select: {
+                slug: true,
+                tag: { select: { slug: true } },
+                internalLinkKeywords: true
+            }
         }),
-        prisma.tag.findMany({ select: { id: true, name: true, slug: true } }),
+        prisma.tag.findMany({ select: { name: true, slug: true } }),
     ]);
 
     const linkMap: LinkMapItem[] = [];
-    posts.forEach(p => {
-        linkMap.push({ keyword: p.title, url: `/blog/${p.slug}`, targetId: p.id });
+    postsWithKeywords.forEach(p => {
+        p.internalLinkKeywords.forEach(keyword => {
+            linkMap.push({ keyword: keyword, url: `/blog/${p.tag.slug}/${p.slug}` });
+        });
     });
-    tags.forEach(t => {
-        linkMap.push({ keyword: t.name, url: `/blog/etiket/${t.slug}`, targetId: t.id });
+    allTags.forEach(t => {
+        linkMap.push({ keyword: t.name, url: `/blog/${t.slug}` });
     });
     linkMap.sort((a, b) => b.keyword.length - a.keyword.length);
 

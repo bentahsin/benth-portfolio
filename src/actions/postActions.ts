@@ -5,7 +5,7 @@ import { redirect } from 'next/navigation';
 import prisma from '@/lib/prisma';
 import { z } from 'zod';
 import { calculateReadingTime } from '@/lib/utils';
-import { auth } from '@/auth'; 
+import { auth } from '@/auth';
 
 const PostSchema = z.object({
     id: z.string().cuid().optional().or(z.literal('')),
@@ -14,13 +14,14 @@ const PostSchema = z.object({
     status: z.enum(['DRAFT', 'PUBLISHED']),
     tagId: z.string().cuid({ message: 'Lütfen geçerli bir etiket seçin.' }),
     coverImage: z.string().url({ message: "Geçersiz resim URL'i." }).optional().or(z.literal('')),
+    internalLinkKeywords: z.string().optional(),
 });
 
 export type State = {
     errors?: {
         title?: string[];
         content?: string[];
-        tagId?: string[]; 
+        tagId?: string[];
     };
     message?: string | null;
 };
@@ -40,6 +41,7 @@ export async function savePost(prevState: State, formData: FormData): Promise<St
         status: formData.get('status'),
         tagId: formData.get('tagId'),
         coverImage: formData.get('coverImage') || '',
+        internalLinkKeywords: formData.get('internalLinkKeywords'),
     });
 
     if (!validatedFields.success) {
@@ -49,10 +51,13 @@ export async function savePost(prevState: State, formData: FormData): Promise<St
         };
     }
 
-    const { id: validatedId, title, content, status, tagId, coverImage } = validatedFields.data;
+    const { id: validatedId, title, content, status, tagId, coverImage, internalLinkKeywords } = validatedFields.data;
 
     const readingTime = calculateReadingTime(content);
     const slug = title.toLowerCase().replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').slice(0, 50);
+    const keywordsArray = internalLinkKeywords
+        ? internalLinkKeywords.split(',').map(k => k.trim()).filter(Boolean)
+        : [];
 
     let updatedPost;
 
@@ -61,11 +66,11 @@ export async function savePost(prevState: State, formData: FormData): Promise<St
         if (id) {
             updatedPost = await prisma.post.update({
                 where: { id: id },
-                data: { title, slug, content, status, readingTime, tagId, coverImage, updatedAt: new Date() },
+                data: { title, slug, content, status, readingTime, tagId, coverImage, updatedAt: new Date(), internalLinkKeywords: keywordsArray },
             });
         } else {
             updatedPost = await prisma.post.create({
-                data: { title, slug, content, status, readingTime, tagId, coverImage, publishedAt: status === 'PUBLISHED' ? new Date() : null },
+                data: { title, slug, content, status, readingTime, tagId, coverImage, publishedAt: status === 'PUBLISHED' ? new Date() : null, internalLinkKeywords: keywordsArray },
             });
         }
     } catch (error) {
@@ -75,6 +80,7 @@ export async function savePost(prevState: State, formData: FormData): Promise<St
 
     revalidatePath('/admin/posts');
     revalidatePath('/blog');
+    revalidatePath('/sitemap.xml');
     if (updatedPost) {
         const tag = await prisma.tag.findUnique({ where: { id: updatedPost.tagId } });
         if (tag) {
@@ -114,6 +120,7 @@ export async function deletePost(postId: string): Promise<{ success: boolean; me
 
         revalidatePath('/admin/posts');
         revalidatePath('/blog');
+        revalidatePath('/sitemap.xml');
         revalidatePath('/');
 
         return { success: true, message: 'Yazı başarıyla silindi.' };

@@ -202,6 +202,17 @@ export default function PostEditor({ post, tags }: PostEditorProps) {
                     inputName="coverImage"
                     onUploadSuccess={setCoverImage}
                 />
+                <div className="form-group">
+                    <label htmlFor="internalLinkKeywords">İç Link Anahtar Kelimeleri</label>
+                    <input
+                        type="text"
+                        id="internalLinkKeywords"
+                        name="internalLinkKeywords"
+                        defaultValue={post?.internalLinkKeywords?.join(', ')}
+                        placeholder="Virgülle ayırarak anahtar kelimeleri girin..."
+                    />
+                    <small>Bu kelimeler, diğer yazılarda geçtiğinde bu yazıya otomatik olarak link verilir.</small>
+                </div>
             </div>
             <div className={`editor-main ${layout}`}>
                 <div className="editor-panel">

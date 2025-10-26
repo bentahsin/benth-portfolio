@@ -8,7 +8,7 @@ import { auth } from '@/auth';
 
 const TagSchema = z.object({
     name: z.string().min(2, { message: 'İsim en az 2 karakter olmalıdır.' }),
-    iconClass: z.string().optional(), 
+    iconClass: z.string().optional(),
 });
 
 export type TagFormState = {
@@ -30,13 +30,13 @@ export async function saveTag(prevState: TagFormState, formData: FormData): Prom
 
     const validatedFields = TagSchema.safeParse({
         name: formData.get('name'),
-        iconClass: formData.get('iconClass') || undefined, 
+        iconClass: formData.get('iconClass') || undefined,
     });
 
     if (!validatedFields.success) {
         console.error("Zod Doğrulama Hatası (Etiket):", validatedFields.error.flatten());
-        return { 
-            success: false, 
+        return {
+            success: false,
             message: 'Geçersiz veri. Lütfen alanları kontrol edin.',
             errors: validatedFields.error.flatten().fieldErrors,
         };
@@ -57,7 +57,7 @@ export async function saveTag(prevState: TagFormState, formData: FormData): Prom
     } catch (error) {
 
         if (error instanceof Error && 'code' in error && (error as any).code === 'P2002') {
-             return { success: false, message: 'Bu isimde bir etiket zaten mevcut.' };
+            return { success: false, message: 'Bu isimde bir etiket zaten mevcut.' };
         }
         return { success: false, message: 'Veritabanı hatası oluştu.' };
     }
@@ -66,6 +66,7 @@ export async function saveTag(prevState: TagFormState, formData: FormData): Prom
     revalidatePath('/blog');
     revalidatePath('/admin/posts/new');
     revalidatePath('/admin/posts/editor');
+    revalidatePath('/sitemap.xml');
 
     redirect('/admin/tags');
 }
@@ -83,4 +84,5 @@ export async function updateTagOrder(updateData: { id: string, order: number }[]
 
     await prisma.$transaction(transactions);
     revalidatePath('/admin/tags');
+    revalidatePath('/sitemap.xml');
 }

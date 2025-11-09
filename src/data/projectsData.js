@@ -81,6 +81,7 @@ import BenthLicenseAPIBlockText from '@/components/Images/BenthLicenseAPIBlockTe
 import MynerithBlockText from '@/components/Images/MynerithBlockText';
 import TypeScriptIcon from '@/components/Icons/TypeScriptIcon';
 import BenthPapiMgrBlockText from '@/components/Images/BenthPapiMgrBlockText';
+import BenthPinataBlockText from '@/components/Images/BenthPinataBlockText';
 
 /**
  * @typedef {object} ProjectData
@@ -707,6 +708,75 @@ export const projectsData = [
     caseStudyContent: caseStudies.antiafk,
     caseStudyTitle: <>Detaylı Bilgi: <AntiAfkBlockText /></>,
     seoTitle: 'Detaylı Bilgi: AntiAFK'
+  },
+  {
+    slug: 'benthpinata',
+    title: 'BenthPinata',
+    subtitle: 'Gelişmiş Minecraft Piñata Etkinlik Eklentisi',
+    image: '/assets/BenthPinata_4-3.png',
+    projectUrl: ['https://github.com/bentahsin/BenthPinata'],
+    isPublicRepo: true,
+    tags: ['Çoklu Sürüm Desteği', 'Paket Tabanlı Hologramlar', 'Asenkron Veri Yönetimi', 'Strateji Tasarım Deseni', 'Dinamik Etkinlik Sistemi'],
+    tagIcons: [<JavaIcon key="java" />, <SQLiteIcon key="sqlite" />],
+    description: "Minecraft sunucuları için tamamen özelleştirilebilir, eğlenceli ve ödüllendirici Piñata etkinlikleri ekleyen kapsamlı bir Spigot eklentisi. Yüksek performans ve esneklik için tasarlandı.",
+    caseStudyTitle: <>Detaylı Bilgi: <BenthPinataBlockText /></>,
+    seoTitle: 'Detaylı Bilgi: BenthPinata Minecraft Eklentisi',
+    caseStudyContent: (
+      <>
+        <SectionHeader icon={faStar}>Sunucunuza Hayat Katın: Eğlenceli ve Etkileşimli Piñata Etkinlikleri</SectionHeader>
+        <p><strong>BenthPinata</strong>, Minecraft sunucularına yönelik, sıradan etkinliklerin ötesinde bir deneyim sunan, yüksek performanslı ve derinlemesine özelleştirilebilir bir Piñata eklentisidir. Oyuncuları ortak bir hedef için bir araya getiren, rekabeti teşvik eden ve sunucu ekonomisine canlılık katan bu sistem, en modern ve optimize kodlama teknikleri kullanılarak geliştirilmiştir.</p>
+        <hr />
+
+        <SectionHeader icon={faPuzzlePiece}>Temel Özellikler</SectionHeader>
+        <ul className="feature-list">
+          <FeatureItem icon={faPuzzlePiece}>
+            <strong>Sınırsız Piñata Türü:</strong> Farklı can, görünüm (NBT dahil), konum ve yeteneklere sahip istediğiniz kadar Piñata türü oluşturun.
+          </FeatureItem>
+          <FeatureItem icon={faBolt}>
+            <strong>Gelişmiş Yetenek Sistemi:</strong> Piñata&apos;nın canı azaldıkça tetiklenen şok dalgaları, kör edici ışıklar veya negatif iksir auraları gibi dinamik yetenekler ekleyin.
+          </FeatureItem>
+          <FeatureItem icon={faGift}>
+            <strong>Kapsamlı Ödül Mekanizması:</strong> Vuruş başına, hasar eşiğine ve etkinlik sonundaki sıralamaya göre farklı ödül havuzları yapılandırın.
+          </FeatureItem>
+          <FeatureItem icon={faCalendarCheck}>
+            <strong>Otomatik Etkinlik Sistemi:</strong> Belirli aralıklarla, oyuncu sayısına ulaşıldığında veya belirli gün ve saatlerde (örn: Her Cuma 20:00) otomatik etkinlikler planlayın.
+          </FeatureItem>
+          <FeatureItem icon={faChartLine}>
+            <strong>İstatistikler ve Liderlik Tablosu:</strong> Oyuncuların toplam hasarını ve öldürme sayılarını SQLite veya YAML üzerinde saklayın ve en iyileri listeleyin.
+          </FeatureItem>
+        </ul>
+
+        <hr />
+
+        <SectionHeader icon={faCogs}>Teknik Mükemmellik: Performans ve Esneklik Odaklı Mimari</SectionHeader>
+        <p>BenthPinata, sadece özellikleriyle değil, aynı zamanda bu özellikleri sunarken kullandığı sağlam ve modern mimariyle de öne çıkar.</p>
+
+        <ul className="feature-list">
+          <FeatureItem icon={faLayerGroup}>
+            <strong>Çoklu Sürüm Destekli Paket Tabanlı Hologramlar:</strong> Eklenti, <strong>Adapter Tasarım Deseni</strong> kullanarak sunucunun sürümünü (1.13-1.16 veya 1.17+) anlar ve ProtocolLib aracılığıyla sürüme özel paketler gönderir. Bu, harici hologram eklentilerine olan bağımlılığı ortadan kaldırır ve saniyede 20 kareye varan, sunucuya yük bindirmeyen, pürüzsüz hologram güncellemeleri sağlar.
+          </FeatureItem>
+          <FeatureItem icon={faSyncAlt}>
+            <strong>Asenkron ve Güvenli Veri Yönetimi:</strong> Oyuncu istatistikleri, sunucunun ana döngüsünü kilitlemeden, tamamen asenkron olarak veritabanına kaydedilir ve yüklenir. &quot;Race condition&quot; risklerini ortadan kaldıran güvenli bir bayrak (dirty flag) sistemi ile veri kaybı yaşanmaz.
+          </FeatureItem>
+          <FeatureItem icon={faSitemap}>
+            <strong>Strateji Tasarım Deseni ile Esneklik:</strong> Hem veritabanı yönetimi (SQLite/YAML) hem de hologram sistemi (ProtocolLib/DecentHolograms/Dummy), <strong>Strateji Deseni</strong> kullanılarak soyutlanmıştır. Bu, tek bir ayarla sistemin davranışını kökten değiştirme imkanı sunar ve kodu modüler tutar.
+          </FeatureItem>
+          <FeatureItem icon={faTachometerAlt}>
+            <strong>Optimize Edilmiş Görev Zamanlama:</strong> Sistem, kullanılan hologram servisine göre güncelleme sıklığını dinamik olarak ayarlar. ProtocolLib için her tick&apos;te (1L) çalışarak maksimum akıcılık sağlarken, DecentHolograms gibi API tabanlı sistemler için daha seyrek aralıklar kullanarak sunucu performansını korur.
+          </FeatureItem>
+        </ul>
+        <InfoBox title="Kullanılan Teknolojiler ve Desenler" icon={faCode}>
+          <ul className="feature-list">
+            <FeatureItem icon={faCheckCircle}><strong>Dil & Platform:</strong> Java, Spigot API 1.13+</FeatureItem>
+            <FeatureItem icon={faCheckCircle}><strong>Bağımlılıklar:</strong> ProtocolLib (Önerilen), PlaceholderAPI (İsteğe Bağlı)</FeatureItem>
+            <FeatureItem icon={faCheckCircle}><strong>Veritabanı:</strong> SQLite (Varsayılan), YAML (Alternatif)</FeatureItem>
+            <FeatureItem icon={faCheckCircle}><strong>Kullanılan Tasarım Desenleri:</strong> Adapter, Strategy, Repository, Singleton Task</FeatureItem>
+          </ul>
+        </InfoBox>
+
+        <p><strong>Sonuç olarak BenthPinata, sadece bir etkinlik eklentisi değil, aynı zamanda modern yazılım mühendisliği prensiplerinin Minecraft eklenti geliştirmeye nasıl uygulanabileceğinin somut bir örneğidir.</strong></p>
+      </>
+    )
   },
   {
     slug: 'benthfarming',

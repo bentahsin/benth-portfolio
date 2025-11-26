@@ -1,0 +1,71 @@
+{
+  "preset": "react",
+  "ignored_dirs": [
+    "node_modules",
+    ".pnp",
+    ".yarn",
+    "coverage",
+    ".next",
+    "out",
+    "build",
+    ".vercel",
+    ".vscode",
+    "migrations",
+    "data",
+    "generated"
+  ],
+  "ignored_extensions": [
+    ".md",
+    ".markdown",
+    ".pem",
+    ".tsbuildinfo",
+    ".log",
+    ".lock",
+    ".map"
+  ],
+  "ignored_files": [
+    ".DS_Store",
+    "package-lock.json",
+    "yarn.lock",
+    "pnpm-lock.yaml",
+    "next-env.d.ts",
+    "npm-debug.log",
+    "yarn-debug.log",
+    "yarn-error.log"
+  ],
+  "ignored_patterns": [
+    ".env",
+    "src/generated",
+    "prisma/migrations"
+  ],
+  "include_paths": [],
+  "max_depth": null,
+  "min_file_size_kb": 0,
+  "exclude_hidden_files": true,
+  "use_gitignore": true,
+  "regex_ignore_patterns": [],
+  "only_binary_extensions": [],
+  
+  "git_diff_only": false,
+  "git_diff_base": "HEAD",
+  "only_tracked_files": false,
+  
+  "remove_comments": false,
+  "remove_empty_lines": true,
+  "trim_whitespace": true,
+  "add_line_numbers": false,
+  "truncate_large_files": true,
+  "truncate_limit_kb": 150,
+  "truncate_direction": "head",
+  
+  "redact_secrets": true,
+  "redact_ips": false,
+  "custom_replacements": {},
+  
+  "output_format": "xml",
+  "generate_toc": true,
+  "include_git_metadata": false,
+  
+  "estimate_tokens": true,
+  "target_model": "gpt-4"
+}

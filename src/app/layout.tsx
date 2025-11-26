@@ -11,6 +11,7 @@ import { ZenModeProvider } from '@/context/ZenModeContext';
 import BrowserWarningModal from '@/components/BrowserWarningModal';
 import { useBrowser } from '@/hooks/useBrowser';
 import ClientScripts from '@/components/ClientScripts';
+import AnalyticsTracker from '@/components/AnalyticsTracker';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -38,6 +39,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body className={bodyClassName}>
         <Providers>
           <ZenModeProvider>
+            <AnalyticsTracker />
             {!pathname.startsWith('/admin') && <BrowserWarningModal browserName={browserName} />}
             {!pathname.startsWith('/admin') && <ClientScripts />}
             {children}

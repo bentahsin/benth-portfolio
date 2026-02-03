@@ -9,7 +9,8 @@ export default function AnalyticsTracker() {
 
     useEffect(() => {
         if (!pathname.startsWith('/admin') && !pathname.startsWith('/api')) {
-        trackVisit(pathname);
+        const referrer = document.referrer || null;
+        trackVisit(pathname, referrer);
         }
     }, [pathname]);
 

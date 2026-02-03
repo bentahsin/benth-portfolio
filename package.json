@@ -34,6 +34,7 @@
     "react": "^19.2.0",
     "react-diff-view": "^3.3.2",
     "react-dom": "^19.2.0",
+    "react-intersection-observer": "^10.0.0",
     "react-markdown": "^10.1.0",
     "react-tsparticles": "^2.12.2",
     "recharts": "^3.5.0",

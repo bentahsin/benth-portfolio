@@ -10,6 +10,7 @@ import Providers from '@/components/Providers';
 import { ZenModeProvider } from '@/context/ZenModeContext';
 import BrowserWarningModal from '@/components/BrowserWarningModal';
 import { useBrowser } from '@/hooks/useBrowser';
+import { isCurrentIpBlocked } from '@/actions/ipActions';
 import ClientScripts from '@/components/ClientScripts';
 import AnalyticsTracker from '@/components/AnalyticsTracker';
 
@@ -24,11 +25,41 @@ interface RootLayoutProps {
   children: ReactNode;
 }
 
+function AccessDenied() {
+  return (
+    <div style={{
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      backgroundColor: '#0f0f0f',
+      color: '#fff',
+      fontFamily: 'sans-serif'
+    }}>
+      <h1 style={{ fontSize: '3rem', color: '#ff4444' }}>403</h1>
+      <h2>Erişim Reddedildi</h2>
+      <p>IP adresiniz güvenlik nedeniyle engellenmiştir.</p>
+    </div>
+  );
+}
+
 export default function RootLayout({ children }: RootLayoutProps) {
   const pathname = usePathname();
-  const browserName = useBrowser(); 
+  const browserName = useBrowser();
 
   const bodyClassName = pathname.startsWith('/admin') ? 'admin-body' : '';
+
+  const isBlocked = isCurrentIpBlocked();
+  if (isBlocked) {
+    return (
+      <html lang="tr">
+        <body>
+          <AccessDenied />
+        </body>
+      </html>
+    );
+  }
 
   return (
     <html lang="tr" className={montserrat.variable}>

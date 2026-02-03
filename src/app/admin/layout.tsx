@@ -5,7 +5,7 @@ import {
     faTachometerAlt,
     faPen,
     faTags,
-    faComments,
+    faListUl,
     faHome,
     type IconDefinition
 } from '@fortawesome/free-solid-svg-icons';
@@ -27,6 +27,7 @@ const navItems: NavItem[] = [
     { href: '/admin', icon: faTachometerAlt, label: 'Dashboard' },
     { href: '/admin/posts', icon: faPen, label: 'Yazılar' },
     { href: '/admin/tags', icon: faTags, label: 'Etiketler' },
+    { href: '/admin/visits', icon: faListUl, label: 'Ziyaretçiler' },
 ];
 
 export const metadata = {

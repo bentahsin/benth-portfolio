@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
@@ -116,7 +115,18 @@ model Visit {
   os        String?
   device    String?
   path      String
+
+  referrer  String?  @db.Text
+  isBot     Boolean  @default(false)
+
   createdAt DateTime @default(now())
 
   @@index([createdAt])
+}
+
+model BlockedIp {
+  id        String   @id @default(cuid())
+  ip        String   @unique
+  reason    String?  @db.Text
+  createdAt DateTime @default(now())
 }

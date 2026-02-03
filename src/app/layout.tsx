@@ -12,6 +12,8 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
 });
 
+export const dynamic = 'force-dynamic';
+
 interface RootLayoutProps {
   children: ReactNode;
 }

@@ -1,11 +1,11 @@
-'use client';
+import LoginClient from './LoginClient';
 
-import { signIn } from 'next-auth/react';
-import { useSearchParams } from 'next/navigation';
+interface LoginPageProps {
+  searchParams?: { callbackUrl?: string };
+}
 
-const LoginPage = () => {
-  const searchParams = useSearchParams();
-  const callbackUrl = searchParams.get('callbackUrl') || '/admin';
+const LoginPage = ({ searchParams }: LoginPageProps) => {
+  const callbackUrl = searchParams?.callbackUrl || '/admin';
 
   return (
     <main style={{
@@ -27,23 +27,7 @@ const LoginPage = () => {
         <p style={{ color: 'var(--text-secondary)', marginTop: 0 }}>
           Admin paneline erişmek için GitHub ile giriş yap.
         </p>
-        <button
-          type="button"
-          onClick={() => signIn('github', { callbackUrl })}
-          style={{
-            marginTop: '1.5rem',
-            width: '100%',
-            padding: '0.9rem 1rem',
-            borderRadius: '12px',
-            border: 'none',
-            background: '#24292e',
-            color: '#fff',
-            fontWeight: 600,
-            cursor: 'pointer',
-          }}
-        >
-          GitHub ile Giriş Yap
-        </button>
+        <LoginClient callbackUrl={callbackUrl} />
       </div>
     </main>
   );

@@ -78,7 +78,6 @@ export default function VisitList() {
                 style={{ cursor: 'pointer' }}
                 className="hover-row"
               >
-                {/* Tip İkonu */}
                 <td style={{textAlign: 'center'}}>
                     <FontAwesomeIcon 
                         icon={visit.isBot ? faRobot : faUser} 

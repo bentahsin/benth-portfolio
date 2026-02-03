@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import { projectsData } from '@/data/projectsData';
-import Header from '@/components/Header';
 import React from 'react';
 
 interface Project {
@@ -15,7 +14,6 @@ const NotFound: React.FC = () => {
 
     return (
         <>
-            <Header />
             <main>
                 <section id="not-found" style={{ textAlign: 'center', minHeight: '80vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <h1 style={{ fontSize: 'clamp(3rem, 10vw, 6rem)', color: 'var(--accent-color)', marginBottom: '1rem' }}>404</h1>

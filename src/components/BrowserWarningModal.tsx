@@ -14,7 +14,7 @@ interface BrowserWarningModalProps {
 const BrowserWarningModal: React.FC<BrowserWarningModalProps> = ({ browserName }) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>(false);
-    const { toggleZenMode } = useZenMode();
+    const { isZenMode, toggleZenMode } = useZenMode();
 
     useEffect(() => {
         const isMobileDevice = /Mobi|Android/i.test(navigator.userAgent);
@@ -22,7 +22,7 @@ const BrowserWarningModal: React.FC<BrowserWarningModalProps> = ({ browserName }
     }, []);
 
     useEffect(() => {
-        if (isMobile) return;
+        if (isMobile || isZenMode) return;
 
         const hasBeenClosed = sessionStorage.getItem('browserWarningClosed') === 'true';
 
@@ -32,7 +32,7 @@ const BrowserWarningModal: React.FC<BrowserWarningModalProps> = ({ browserName }
             }, 2000);
             return () => clearTimeout(timer);
         }
-    }, [browserName, isMobile]);
+    }, [browserName, isMobile, isZenMode]);
 
     const handleClose = () => {
         setIsOpen(false);
@@ -44,7 +44,7 @@ const BrowserWarningModal: React.FC<BrowserWarningModalProps> = ({ browserName }
         handleClose();
     };
 
-    if (isMobile || !isOpen) {
+    if (isMobile || isZenMode || !isOpen) {
         return null;
     }
 
